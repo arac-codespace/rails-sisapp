@@ -1,0 +1,26 @@
+<div class="dramas-index">
+  <div class= "container">
+    <div class = "row">
+      <div class = "col-md-8 col-md-offset-2">
+        <h1 class = "text-center"> List of Dramas </h1>
+        <p class= "text-center"> The following is a list of all dramas currently available in our database. </p>
+        <h5> <%= link_to "Add an entry!", new_drama_path %> </h5>
+        <ul class = "list-unstyled">
+          <% @dramas.each do |drama| %>
+            <li>
+              <div class = "text-in-well">
+                <%= link_to drama do %>
+                  <div>
+                    <h2> <%= drama.title%></h2>
+                    <!--<h3> %= drama.description %></h3>-->
+                  </div>
+                <% end %>
+              </div>
+            </li>
+          <% end %>  
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
