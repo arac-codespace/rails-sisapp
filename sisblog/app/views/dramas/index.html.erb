@@ -7,16 +7,18 @@
         <h5> <%= link_to "Add an entry!", new_drama_path %> </h5>
         <ul class = "list-unstyled">
           <% @dramas.each do |drama| %>
-            <li>
-              <div class = "text-in-well">
-                <%= link_to drama do %>
-                  <div>
-                    <h2> <%= drama.title%></h2>
-                    <!--<h3> %= drama.description %></h3>-->
-                  </div>
-                <% end %>
-              </div>
-            </li>
+            <% if drama.category.to_s == @category.to_s %>
+              <li>
+                <div class = "text-in-well">
+                  <%= link_to drama do %>
+                    <div>
+                      <h2> <%= drama.title%></h2>
+                      <!--<h3> %= drama.description %></h3>-->
+                    </div>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
           <% end %>  
         </ul>
       </div>

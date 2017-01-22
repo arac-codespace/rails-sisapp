@@ -21,55 +21,42 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">SisBlog</a>
-      </div>
+        <%= link_to "SisBlog", root_path, :class => "navbar-brand" %>
+      </div> <!-- Hamburger and logo end tag-->
+      
+      <!-- Items to collapse in hamburger-->
       <div class="collapse navbar-collapse" id="main-nav-collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Inicio</a></li>
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              Reseñas <span class="caret"></span>
-            </a> <!-- Reseñas main button close--> 
-            <ul class="dropdown-menu"> <!-- Reseñas menu -->
-              <li><%= link_to "Dramas", dramas_path %></li>
-              <li><a href="#">Peliculas</a></li>
-              <li><a href="#">Animes</a></li>
-              <li><a href="#">Libros</a></li>
-              <li><a href="#">Maquillaje</a></li>
-              <li><a href="#">Productos Faciales</a></li>
-              <li><a href="#">Otros</a></li>
-            </ul>
+          <li><%= link_to "Inicio", root_path %></li>
+          <li><%= link_to "Reseñas", resenas_path %></li>
+          <li><%= link_to "Manualidades", "#" %></li>
+          <li><%= link_to "Cuidado Personal","#" %></li>
+          <li><%= link_to "Otros","#" %></li>
+          <li><%= link_to "Sobre Nosotras", sobre_nosotras_path %></li>
+          <li> <!-- Search form and button! -->
+            <form class="navbar-form navbar-left" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </li>  
+          <li class= 'login_logout_btn'>
+            <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+            <% else %>
+              <%= link_to('Login', new_user_session_path) %>
+            <% end %>
           </li>
-          <li><a href="#"> Manualidades </a></li>
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              Cuidado Personal <span class="caret"></span>
-            </a> <!-- Reseñas main button close--> 
-            <ul class="dropdown-menu"> <!-- Reseñas menu -->
-              <li><a href="#">Autoestima</a></li>
-              <li><a href="#">Físico</a></li>
-              <li><a href="#">Emocional</a></li>
-              <li><a href="#">Cuidados Faciales</a></li>
-              <li><a href="#">Otros</a></li>
-            </ul>
-          </li>
-          <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              Otros <span class="caret"></span>
-            </a> <!-- Reseñas main button close--> 
-            <ul class="dropdown-menu"> <!-- Reseñas menu -->
-              <li><a href="#">Juegos</a></li>
-              <li><a href="#">Música</a></li>
-              <li><a href="#">Videos</a></li>
-              <li><a href="#">Recetas</a></li>
-              <li><a href="#">Reflexiones</a></li>
-            </ul>
-          </li>
-          <li><a href="#"> Sobre Nosotras </a></li>
         </ul> <!-- Navbar link list colapse-->
       </div><!-- /.navbar-collapse -->
     </div>
 </nav> 
+    <div class  = "container flash-container">
+        <% flash.each do |type,msg| %>
+            <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+        <% end %>
+    </div>
     <div class= "container">
       <%= yield %>
     </div>

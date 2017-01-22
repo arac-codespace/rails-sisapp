@@ -1,14 +1,21 @@
 <h1> Drama Show Page! </h1>
-
-
 <div class='container'>
   <div class='row'>
     <div class="col-md-6">
       <h1><%= @drama_show.title%></h1>
       <div class='well profile-block profile-description'>
         <h3> Description</h3>
-        <%= @drama_show.description %>
+        <%= @drama_show.drama_description %>
+        <%= image_tag @drama_show.avatar.url, class: 'avatar-show-img' %>
+        <%= @drama_show.category %>
+        <%= @drama_show.actors %>
+        <%= @drama_show.comments %>
+        <%= @drama_show.release_date.to_s %>
       </div>
     </div>
   </div>
 </div>
+
+
+<%= link_to "Edit the profile", edit_drama_path(id: @drama_show.id), class: "btn btn-default btn-lg btn-block" %>
+<%= link_to "Delete", drama_path(id: @drama_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-lg btn-block" %>

@@ -3,6 +3,7 @@ class DramasController < ApplicationController
   # GET /drama_index  
   def index
     @dramas = Drama.all
+    @category = params[:cat]
   end
   
   # GET /drama_index/new
@@ -14,21 +15,39 @@ class DramasController < ApplicationController
     @drama_show = Drama.find(params[:id])
   end
   
+  def edit
+    @drama = Drama.find(params[:id])
+  end
+  
+  def update
+    @drama = Drama.find(params[:id])
+    if @drama.update_attributes(drama_params)
+      flash[:success] = "Profile updated!"
+      # Redirect to the drama's profile
+      redirect_to drama_path(id: params[:id])
+    else
+      render action: :edit
+    end
+  end
+  
+  def destroy
+    @drama = Drama.find(params[:id])
+    @drama.destroy
+    flash.notice="Drama deleted"
+
+    redirect_to dramas_path
+  end
+  
   def create
       # Mass assignment of form fields into Contact object
       @drama = Drama.new(drama_params)
       # Save the Contact object to the database
       if @drama.save
-          # Store form fields via parameters into local variables
-          title = params[:drama][:title]
-          description = params[:drama][:description]
-          flash[:success] = "Message Sent."
-          redirect_to drama_index_path
+        flash[:success] = "Message Sent."
+        redirect_to dramas_path 
       else
-          # If contact object doesn't save,
-          # store errors in flash hash and redirect to new action
-          # flash[:danger] = @contact.errors.full_messages.join(", ")
-          redirect_to drama_index_path
+        flash[:danger] = "Error: profile not saved."
+        redirect_to dramas_path
       end
   end
   
@@ -36,7 +55,7 @@ class DramasController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def drama_params
-        params.require(:drama).permit(:title, :description)
+        params.require(:drama).permit(:title, :drama_description, :avatar, :category, :actors, :release_date, :comments)
     end
 
   

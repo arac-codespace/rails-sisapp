@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How To: Set up devise as a single user system
+https://github.com/plataformatec/devise/wiki/How-To:-Set-up-devise-as-a-single-user-system - completed
 
-Things you may want to cover:
+How to add an admin role
+https://github.com/plataformatec/devise/wiki/How-To%3A-Add-an-Admin-Role
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Resources action authentication
+https://github.com/plataformatec/devise/wiki/How-To:-Define-resource-actions-that-require-authentication-using-routes.rb

@@ -1,0 +1,65 @@
+<div class="container main">
+  <div class="row mid-header-row">
+    <div class="col-md-12">
+      <div class= "well">
+        
+        <div class= " Drama block">
+          <h1><%= link_to "Drama Index", dramas_path %></h1>
+          <div class= "Categories block"> <!-- Group of categories -->
+            <ul>
+                <li>
+                    <%= link_to "Coreanos", dramas_path(cat: "Coreanos") %>
+                </li>
+                <li>
+                    <%= link_to "Japoneses", dramas_path(cat: "Japoneses") %>
+                </li>
+                <li>
+                    <%= link_to "Taiwaneses", dramas_path(cat: "Taiwaneses") %>
+                </li>
+                <li>
+                    <%= link_to "Otros", dramas_path(cat: "Otros") %>
+                </li>
+            </ul>
+          </div> <!-- Categories end tag -->
+        </div> <!-- Drama block end tag -->
+        
+        <div class= " Peliculas block">
+          <h1><%= link_to "Peliculas Index", dramas_path %></h1>
+          <div class= "Categories block"> <!-- Group of categories -->
+            <ul>
+                <li>
+                    <%= link_to "Coreanos", '#' %>
+                </li>
+                <li>
+                    <%= link_to "Japoneses", "#" %>
+                </li>
+                <li>
+                    <%= link_to "Taiwaneses", "#" %>
+                </li>
+                <li>
+                    <%= link_to "Otros", "#" %>
+                </li>
+            </ul>
+          </div> <!-- Categories end tag -->
+        </div> <!-- Drama block end tag -->
+        
+        <div class= "anime">
+          <h1><%= link_to "Anime", dramas_path %></h1> 
+        </div>
+        <div class= "libros">
+          <h1><%= link_to "Libros", dramas_path %></h1>          
+        </div>
+        <div class= "maquillaje">
+          <h1><%= link_to "Maquillaje", dramas_path %></h1>          
+        </div>
+        <div class= "productos-faciales">
+          <h1><%= link_to "Productos Faciales", dramas_path %></h1>          
+        </div>
+        <div class= "otros-resenas">
+          <h1><%= link_to "Otros", dramas_path %></h1>          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
