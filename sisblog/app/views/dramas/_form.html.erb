@@ -22,7 +22,7 @@
    
   <div class= "form-group">
     <%= f.label :comments %>
-    <%= f.text_area :comments, class: "form-control" %>
+    <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>
   </div>    
    
   <div class = "form-group">
