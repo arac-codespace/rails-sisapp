@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20170122181657) do
     t.string   "category"
     t.string   "actors"
     t.date     "release_date"
-    t.string   "drama_description"
-    t.string   "comments"
+    t.text     "drama_description"
+    t.text     "comments"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"

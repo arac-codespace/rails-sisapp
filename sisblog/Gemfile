@@ -45,6 +45,9 @@ gem 'devise'
 # Use Paperclip gem for image upload
 gem 'paperclip'
 
+# Use CKEditor for words processing capabilities
+gem 'ckeditor'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

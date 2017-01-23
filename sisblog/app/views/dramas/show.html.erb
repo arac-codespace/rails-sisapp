@@ -1,21 +1,46 @@
-<h1> Drama Show Page! </h1>
 <div class='container'>
   <div class='row'>
-    <div class="col-md-6">
-      <h1><%= @drama_show.title%></h1>
-      <div class='well profile-block profile-description'>
-        <h3> Description</h3>
-        <%= @drama_show.drama_description %>
+    <div class="col-md-6 col-md-offset-3">
+      
+        <h1 class="text-center">Titulo: <%= @drama_show.title%></h1>
+        
         <%= image_tag @drama_show.avatar.url, class: 'avatar-show-img' %>
-        <%= @drama_show.category %>
-        <%= @drama_show.actors %>
-        <%= @drama_show.comments %>
-        <%= @drama_show.release_date.to_s %>
-      </div>
+        
+        <h1> Informacion General </h1>
+        <div class = "well">
+          <h3> Descripcion:</h3>
+          <p><%= @drama_show.drama_description %></p>
+          <h4> Categoria</h4> 
+          <p><%= @drama_show.category %></p>
+          <h4> Actores </h4> 
+          <p><%= @drama_show.actors %></p>
+          <h4> Fecha de Publicacion </h4> 
+          <p><%= @drama_show.release_date.to_s %></p>
+          
+        </div>
     </div>
   </div>
 </div>
 
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-8 col-md-offset-2">
+      <h4> Opinion </h4>
+      <div class= "well">
+        <p><%= simple_format(@drama_show.comments) %></p>
+      </div>
+    </div>
+  </div>
+</div>  
 
-<%= link_to "Edit the profile", edit_drama_path(id: @drama_show.id), class: "btn btn-default btn-lg btn-block" %>
-<%= link_to "Delete", drama_path(id: @drama_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-lg btn-block" %>
+
+<% if user_signed_in? %>
+  <div class='container'>
+    <div class='row'>
+      <div class="col-md-4 col-md-offset-4">
+        <%= link_to "Edit the profile", edit_drama_path(id: @drama_show.id), class: "btn btn-default btn-lg btn-block" %>
+        <%= link_to "Delete", drama_path(id: @drama_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-lg btn-block" %>
+      </div>
+    </div>
+  </div>  
+<% end %>  

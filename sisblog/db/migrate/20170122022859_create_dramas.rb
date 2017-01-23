@@ -5,8 +5,8 @@ class CreateDramas < ActiveRecord::Migration[5.0]
       t.string :category
       t.string :actors
       t.date :release_date
-      t.string :drama_description
-      t.string :comments
+      t.text :drama_description
+      t.text :comments
       t.timestamps
     end
   end
