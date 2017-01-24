@@ -1,5 +1,10 @@
 class DramasController < ApplicationController
-    
+  add_breadcrumb "Inicio", :root_path 
+  add_breadcrumb "Reseñas", :resenas_path
+  add_breadcrumb "Indice Drama", :dramas_path
+  
+
+
   # GET /drama_index  
   def index
     @dramas = Drama.all
@@ -9,14 +14,17 @@ class DramasController < ApplicationController
   # GET /drama_index/new
   def new
     @drama = Drama.new
+    add_breadcrumb "Create new entry"
   end
   
   def show
     @drama_show = Drama.find(params[:id])
+     add_breadcrumb "Drama"
   end
   
   def edit
     @drama = Drama.find(params[:id])
+    add_breadcrumb "Edit entry"    
   end
   
   def update

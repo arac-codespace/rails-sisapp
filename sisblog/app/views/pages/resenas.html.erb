@@ -1,9 +1,8 @@
-<div class="container main">
-  <div class="row mid-header-row">
-    <div class="col-md-12">
-      <div class= "well">
-        
-        <div class= " Drama block">
+<div class='container-fluid'>
+  <div class='well'>
+    <div class='row'>
+      <div class = "col-md-6">
+        <div class= " drama-block">
           <h1><%= link_to "Drama Index", dramas_path %></h1>
           <div class= "Categories block"> <!-- Group of categories -->
             <ul>
@@ -22,44 +21,71 @@
             </ul>
           </div> <!-- Categories end tag -->
         </div> <!-- Drama block end tag -->
-        
+      </div>
+      
+      <div class = "col-md-6">
         <div class= " Peliculas block">
           <h1><%= link_to "Peliculas Index", dramas_path %></h1>
           <div class= "Categories block"> <!-- Group of categories -->
             <ul>
                 <li>
-                    <%= link_to "Coreanos", '#' %>
+                  <%= link_to "Coreanos", '#' %>
                 </li>
                 <li>
-                    <%= link_to "Japoneses", "#" %>
+                  <%= link_to "Japoneses", "#" %>
                 </li>
                 <li>
-                    <%= link_to "Taiwaneses", "#" %>
+                  <%= link_to "Taiwaneses", "#" %>
                 </li>
                 <li>
-                    <%= link_to "Otros", "#" %>
+                  <%= link_to "Otros", "#" %>
                 </li>
             </ul>
           </div> <!-- Categories end tag -->
         </div> <!-- Drama block end tag -->
-        
+      </div>
+    </div>
+  </div> <!-- well closing div--> 
+</div>     
+
+
+<div class='container-fluid'>
+  <div class ='well'>
+    <div class="row">
+      <div class="col-md-4">
         <div class= "anime">
           <h1><%= link_to "Anime", dramas_path %></h1> 
         </div>
+      </div>
+      <div class="col-md-4">
         <div class= "libros">
           <h1><%= link_to "Libros", dramas_path %></h1>          
-        </div>
+        </div>      
+      </div>
+      <div class="col-md-4">
         <div class= "maquillaje">
           <h1><%= link_to "Maquillaje", dramas_path %></h1>          
-        </div>
+        </div>      
+      </div>
+    </div>
+  </div> <!-- well closing div-->
+</div>  
+
+<div class='container-fluid'>
+  <div class ='well'>
+    <div class="row">
+      <div class="col-md-4" >
         <div class= "productos-faciales">
           <h1><%= link_to "Productos Faciales", dramas_path %></h1>          
         </div>
+      </div>
+      
+      <div class="col-md-4 col-md-offset-4">
         <div class= "otros-resenas">
           <h1><%= link_to "Otros", dramas_path %></h1>          
         </div>
-        
+        </div>
       </div>
     </div>
-  </div>
+    </div> <!-- well closing div -->
 </div>

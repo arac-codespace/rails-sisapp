@@ -48,6 +48,9 @@ gem 'paperclip'
 # Use CKEditor for words processing capabilities
 gem 'ckeditor'
 
+#Use beacrumbs_on_rails for breadcrumbs capabilities
+gem "breadcrumbs_on_rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
