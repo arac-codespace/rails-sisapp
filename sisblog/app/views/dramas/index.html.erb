@@ -4,36 +4,72 @@
       <div class = "col-md-8 col-md-offset-2">
         <h1 class = "text-center"> List of Dramas </h1>
         <p class= "text-center"> The following is a list of all dramas currently available in our database. </p>
-        <h5> <%= link_to "Add an entry!", new_drama_path %> </h5>
-        <ul class = "list-unstyled">
-          <% @dramas.each do |drama| %>
-            <% if @category.nil? %>
-              <li>
-                <div class = "text-in-well">
-                  <%= link_to drama do %>
-                    <div>
-                      <h2> <%= drama.title%></h2>
-                      <!--<h3> %= drama.description %></h3>-->
-                    </div>
-                  <% end %>
-                </div>
-              </li>
-            <% elsif drama.category.to_s == @category.to_s %>
-                <li>
-                  <div class = "text-in-well">
-                    <%= link_to drama do %>
-                      <div>
-                        <h2> <%= drama.title%></h2>
-                        <!--<h3> %= drama.description %></h3>-->
-                      </div>
-                    <% end %>
-                  </div>
-                </li>
-            <% end %>
-          <% end %>  
-        </ul>
       </div>
     </div>
   </div>
+</div>  
+        
+<!-- Temporary add btn -->        
+<h5> <%= link_to "Add an entry!", new_drama_path %> </h5>
 
-</div>
+
+<!-- List generator! -->
+
+
+
+
+
+        <!--<ul class = "list-unstyled">-->
+          <% @dramas.each do |drama| %>
+            <% if @category.nil? %>
+              <!--<li>-->
+                <div class = "container-fluid">
+                  <div class = 'row results-row'>
+                    
+                    <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                      <div class ='index-column'>
+                        <%= link_to drama do %>
+                          <%= image_tag drama.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>
+                      </div>
+                    </div>   
+                    
+                    <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
+                       <div>
+                          <%= link_to drama do %>
+                            <h2> <%= drama.title%></h2>
+                          <% end %>
+                        </div>
+                      <p><%= drama.drama_description %></p>
+                    </div>
+                    
+                  </div>
+                </div>
+              <!--</li>-->
+            <% elsif drama.category.to_s == @category.to_s %>
+                <!--<li>-->
+                <div class = "container-fluid">
+                  <div class = 'row results-row'>
+                    
+                    <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                      <div class = 'index-column'>
+                        <%= link_to drama do %>
+                          <%= image_tag drama.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>
+                      </div>
+                    </div>                     
+                    
+                    <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
+                      <%= link_to drama do %>
+                        <div>
+                          <h2> <%= drama.title%></h2>
+                        </div>
+                      <% end %>
+                      <p><%= drama.drama_description %></p>
+                    </div>
+                  </div>
+                </div>  
+                <!--</li>-->
+            <% end %>
+          <% end %>  
+        <!--</ul>-->

@@ -7,7 +7,9 @@ class DramasController < ApplicationController
 
   # GET /drama_index  
   def index
+    
     @dramas = Drama.all
+    # @dramas = @dramas_array.sort_by{|s| s[:title]}
     @category = params[:cat]
   end
   

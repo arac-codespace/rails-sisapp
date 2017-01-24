@@ -1,23 +1,24 @@
-.avatar-show-img {
+.avatar-index-img {
+  max-width: 130px;
+  max-height: 256px;
+  min-width: 128px;
   margin-left: auto;
   margin-right: auto;
 }
 
 // Two divs of equal height!
-.information-row {
+.results-row {
   display: flex; /* equal height of the children */
   background-color: rgb(110, 123, 158);
   margin-bottom: 30px;
 }
 
-.description-col,.avatar-col {
+.description-col-index,.avatar-col-index {
   padding: 1em;
   border: solid;
 }
 
-
-// Center image vertically! Use in element container. Have it inherit from the bootstrap col parent. This is a css3 method!
-.column {  
+.index-column {  
   position: inherit;
   left: 50%;
   top: 50%;

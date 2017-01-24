@@ -51,6 +51,9 @@ gem 'ckeditor'
 #Use beacrumbs_on_rails for breadcrumbs capabilities
 gem "breadcrumbs_on_rails"
 
+#Use Ransack for search and sort implementation
+gem 'ransack'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
