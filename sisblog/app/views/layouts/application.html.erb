@@ -52,8 +52,9 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
-    </div><!-- /.container-fluid -->      
-                  
+    </div><!-- /.container-fluid -->   
+    
+    <!-- Search Form -->              
     <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse-s">
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
@@ -61,8 +62,7 @@
         </div>
         <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
       </form>
-    </div>                      
-     
+    </div>  
      
     <div class  = "container flash-container">
         <% flash.each do |type,msg| %>
@@ -73,9 +73,13 @@
     <div class= "container">
       <div class = 'breadcrumbs'>
         <%= render_breadcrumbs %>
+        <!-- Ransack yield -->
+        
+        
       </div>  
       <%= yield %>
     </div>
     
   </body>
 </html>
+

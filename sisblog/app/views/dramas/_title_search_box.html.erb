@@ -1,0 +1,7 @@
+<%= search_form_for @q do |f| %>
+  <!--Search if the name field contains...-->
+  <%= f.label :title_or_comments_or_actors_or_category_or_drama_description_cont, "Search", class: "visuallyhidden" %>
+  <%= f.text_field :title_or_comments_or_actors_or_category_or_drama_description_cont ,placeholder: "Search field" %>
+
+  <%= f.submit %>
+<% end %>

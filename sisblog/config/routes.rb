@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :dramas, only: [:new, :create, :edit, :update, :destroy]
   end
+  
   resources :dramas, only: [:index, :show]
+  
   get 'resenas', to: 'pages#resenas'
 end
