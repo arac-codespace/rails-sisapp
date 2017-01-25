@@ -10,4 +10,11 @@ Rails.application.routes.draw do
   resources :dramas, only: [:index, :show]
   
   get 'resenas', to: 'pages#resenas'
+
+  authenticate :user do
+    resources :movies, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :movies, only: [:index, :show]
+
 end

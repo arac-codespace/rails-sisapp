@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170123031041) do
+ActiveRecord::Schema.define(version: 20170125200729) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -32,7 +32,23 @@ ActiveRecord::Schema.define(version: 20170123031041) do
     t.date     "release_date"
     t.text     "drama_description"
     t.text     "comments"
-    t.integer  "rating"
+    t.string   "rating"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "category"
+    t.string   "actors"
+    t.date     "release_date"
+    t.text     "movie_description"
+    t.text     "comments"
+    t.string   "rating"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"

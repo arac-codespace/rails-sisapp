@@ -25,20 +25,20 @@
       
       <div class = "col-md-6">
         <div class= " Peliculas block">
-          <h1><%= link_to "Peliculas Index", dramas_path %></h1>
+          <h1><%= link_to "Peliculas Index", movies_path %></h1>
           <div class= "Categories block"> <!-- Group of categories -->
             <ul>
                 <li>
-                  <%= link_to "Coreanos", '#' %>
+                  <%= link_to "Coreanos", movies_path(cat: "Coreanos") %>
                 </li>
                 <li>
-                  <%= link_to "Japoneses", "#" %>
+                  <%= link_to "Japoneses", movies_path(cat: "Japones") %>
                 </li>
                 <li>
-                  <%= link_to "Taiwaneses", "#" %>
+                  <%= link_to "Taiwaneses", movies_path(cat: "Taiwanes") %>
                 </li>
                 <li>
-                  <%= link_to "Otros", "#" %>
+                  <%= link_to "Otros", movies_path(cat: "Otros") %>
                 </li>
             </ul>
           </div> <!-- Categories end tag -->
@@ -54,17 +54,17 @@
     <div class="row">
       <div class="col-md-4">
         <div class= "anime">
-          <h1><%= link_to "Anime", dramas_path %></h1> 
+          <h1><%= link_to "Anime", '#' %></h1> 
         </div>
       </div>
       <div class="col-md-4">
         <div class= "libros">
-          <h1><%= link_to "Libros", dramas_path %></h1>          
+          <h1><%= link_to "Libros", '#' %></h1>          
         </div>      
       </div>
       <div class="col-md-4">
         <div class= "maquillaje">
-          <h1><%= link_to "Maquillaje", dramas_path %></h1>          
+          <h1><%= link_to "Maquillaje", '#' %></h1>          
         </div>      
       </div>
     </div>
@@ -76,13 +76,13 @@
     <div class="row">
       <div class="col-md-4" >
         <div class= "productos-faciales">
-          <h1><%= link_to "Productos Faciales", dramas_path %></h1>          
+          <h1><%= link_to "Productos Faciales", '#' %></h1>          
         </div>
       </div>
       
       <div class="col-md-4 col-md-offset-4">
         <div class= "otros-resenas">
-          <h1><%= link_to "Otros", dramas_path %></h1>          
+          <h1><%= link_to "Otros", '#' %></h1>          
         </div>
         </div>
       </div>
