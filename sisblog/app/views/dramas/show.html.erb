@@ -1,8 +1,27 @@
+<% if user_signed_in? %>
+  <div class='container-fluid'>
+    <div class='row add-delete-row'>
+      <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
+        <%= link_to edit_drama_path(id: @drama_show.id), class: "btn btn-default btn-block" do %>
+          <i class="fa fa-plus" aria-hidden="true"> Update </i>
+        <% end %>  
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <%= link_to drama_path(id: @drama_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-block" do %>
+          <i class="fa fa-trash-o" aria-hidden="true"> Delete </i>
+        <% end %>  
+      </div>
+    </div>
+  </div>  
+<% end %>  
+
 <div class='container-fluid'>
   <div class='row information-row'>
     <div class = "col-xs-5 col-md-3 avatar-col">  
       <div class= 'column'>
         <%= image_tag @drama_show.avatar.url, class: 'avatar-show-img img-responsive img-thumbnail center-block' %>
+        <h4 class= "text-center"> Sakura Street's rating: </h4>
+        <div class= 'text-center'> <%= render_stars(@drama_show.rating) %></div>
       </div>    
     </div>
     
@@ -22,7 +41,6 @@
   </div>
 </div>     
 
-
 <div class='container'>
   <div class='row'>
     <div class="col-md-10 col-md-offset-1">
@@ -35,13 +53,3 @@
 </div>  
 
 
-<% if user_signed_in? %>
-  <div class='container'>
-    <div class='row'>
-      <div class="col-md-4 col-md-offset-4">
-        <%= link_to "Edit the profile", edit_drama_path(id: @drama_show.id), class: "btn btn-default btn-lg btn-block" %>
-        <%= link_to "Delete", drama_path(id: @drama_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-lg btn-block" %>
-      </div>
-    </div>
-  </div>  
-<% end %>  

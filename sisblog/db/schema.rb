@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170123031041) do
     t.date     "release_date"
     t.text     "drama_description"
     t.text     "comments"
+    t.integer  "rating"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"

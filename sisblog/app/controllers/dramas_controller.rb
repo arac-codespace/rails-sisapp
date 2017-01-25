@@ -64,7 +64,7 @@ class DramasController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def drama_params
-        params.require(:drama).permit(:title, :drama_description, :avatar, :category, :actors, :release_date, :comments)
+        params.require(:drama).permit(:title, :drama_description, :avatar, :category, :actors, :release_date, :comments, :rating)
     end
 
   

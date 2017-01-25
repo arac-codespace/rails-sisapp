@@ -7,6 +7,7 @@ class CreateDramas < ActiveRecord::Migration[5.0]
       t.date :release_date
       t.text :drama_description
       t.text :comments
+      t.string :rating
       t.timestamps
     end
   end

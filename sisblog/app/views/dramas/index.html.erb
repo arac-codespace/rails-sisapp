@@ -9,8 +9,19 @@
   </div>
 </div>  
         
-<!-- Temporary add btn -->        
-<h5> <%= link_to "Add an entry!", new_drama_path %> </h5>
+
+<!-- Temporary add btn -->  
+<% if user_signed_in? %>
+  <div class='container'>
+    <div class='row'>
+      <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
+        <%= link_to new_drama_path, class: "btn btn-default btn-block" do %>
+          <i class="fa fa-plus" aria-hidden="true"> Entry </i>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+<% end %>  
 
 <!-- Index Search bar! -->
 <div class = "index-search-box">
@@ -20,24 +31,32 @@
 <!-- Sorting Links -->
 <div class = 'container-fluid'>
   <div class = 'row sorting-row'>
-    <div class ="col-md-offset-2 col-md-2 text-center">
+    <div class = 'col-sm-2 col-md-2'>
+      <strong>Sort by:</strong>
+    </div>
+    <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
       <%= sort_link(@q, :title) do %>
-        <strong>Sort by Name </strong>
+        <strong>Name</strong>
       <% end %>      
     </div>
-    <div class ="col-md-2">
+    <div class ="col-sm-2 col-md-2">
       <%= sort_link(@q, :category) do %>
-      <strong>Sort by Category </strong>
+      <strong>Category </strong>
       <% end %>      
     </div>
-    <div class ="col-md-2">
+    <div class ="col-sm-2 col-md-2">
+      <%= sort_link(@q, :rating) do %>
+        <strong>Rating </strong>
+      <% end %>
+    </div>    
+    <div class ="col-sm-2 col-md-2">
       <%= sort_link(@q, :release_date) do %>
-        <strong>Sort by Release Date </strong>
+        <strong>Release Date </strong>
       <% end %>      
     </div>
-    <div class ="col-md-2">
+    <div class ="col-sm-2 col-md-2">
       <%= sort_link(@q, :created_at) do %>
-        <strong>Sort by Review Date </strong>
+        <strong>Review Date </strong>
       <% end %>
     </div>
   </div>
@@ -61,6 +80,8 @@
                 <%= link_to drama do %>
                   <%= image_tag drama.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
                 <% end %>
+                <h4 class= "text-center"> Sakura Street's rating: </h4>
+                <div class= 'text-center'> <%= render_stars(drama.rating) %></div>
               </div>
             </div>   
             <!-- Information spacing and link_to -->
@@ -87,6 +108,8 @@
                 <%= link_to drama do %>
                   <%= image_tag drama.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
                 <% end %>
+                <h4 class= "text-center"> Sakura Street's rating: </h4>
+                <div class= 'text-center'> <%= render_stars(drama.rating) %></div>
               </div>
             </div>                     
             <!-- Information styling and link_to  -->
@@ -96,6 +119,8 @@
                   <h2> <%= drama.title%></h2>
                 </div>
               <% end %>
+              <h4> <%= drama.category %></h4>
+              <h4> <%= drama.actors %></h4>
               <p><%= drama.drama_description %></p>
             </div> <!-- description-col-index end -->
           </div> <!-- row end -->

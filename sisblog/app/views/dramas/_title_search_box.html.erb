@@ -1,7 +1,15 @@
 <%= search_form_for @q do |f| %>
   <!--Search if the name field contains...-->
-  <%= f.label :title_or_comments_or_actors_or_category_or_drama_description_cont, "Search", class: "visuallyhidden" %>
-  <%= f.text_field :title_or_comments_or_actors_or_category_or_drama_description_cont ,placeholder: "Search field" %>
-
-  <%= f.submit %>
+  <div class= 'row'>
+    <div class="col-sm-4 col-md-4">
+      <div class="input-group">
+        <%= f.label :title_or_comments_or_actors_or_category_or_drama_description_cont, "Search", class: "visuallyhidden form-control" %>
+        <%= f.text_field :title_or_comments_or_actors_or_category_or_drama_description_cont ,placeholder: "Search field", class: 'form-control' %>
+      <span class="input-group-btn">
+        <%= f.submit class: 'btn btn-default' %>
+      </span>
+      </div>
+    </div>
+  </div>
 <% end %>
+
