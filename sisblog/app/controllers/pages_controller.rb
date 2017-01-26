@@ -10,6 +10,9 @@ class PagesController < ApplicationController
   end
   
   def resenas
+    # @q = Drama.ransack(params[:q])
+    # @dramas = @q.result(distinct: true)
+    
     add_breadcrumb "Inicio", :root_path  
     add_breadcrumb "Reseñas", :resenas_path
   end
