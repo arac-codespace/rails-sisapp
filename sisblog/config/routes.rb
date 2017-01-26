@@ -42,5 +42,13 @@ Rails.application.routes.draw do
   end
   
   resources :facial_products, only: [:index, :show]    
+  
+  
+  authenticate :user do
+    resources :others, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :others, only: [:index, :show]    
+  
 
 end
