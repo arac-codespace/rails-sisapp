@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def resenas
     # public_activity collects tracked information here.
     # The information to be tracked is determined in the model controller file!
-    @activities = PublicActivity::Activity.order('created_at desc')
+    @activities = PublicActivity::Activity.order('created_at desc').limit(10)
 
     add_breadcrumb "Inicio", :root_path  
     add_breadcrumb "Reseñas", :resenas_path

@@ -1,0 +1,17 @@
+// Activity feed css
+
+.resenas-well {
+  background-image: url("blossom.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.well-sm {
+background-color: rgba(0, 0, 0, 0.17);
+}
+
+.resenas-row div> h1> a, .resenas-row ul>li>a, .resenas-row h2>a {
+  color: white;
+  text-shadow: 2px 2px black;
+}
