@@ -1,0 +1,25 @@
+<%= form_for @care, :html => {:multipart => true} do |f| %>
+          
+  <div class= "form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div class = "form-group">
+    <%= f.label :category %>
+    <%= f.select :category, [ "Autoestima", "Fisico", 'Emocional', "Cuidado Facial", "Otros"], {}, class: 'form-control' %>
+  </div>  
+   
+  <div class= "form-group">
+    <%= f.label :care_description %>
+    <%= f.text_area :care_description, class: "form-control" %>
+  </div> 
+   
+  <div class= "form-group">
+    <%= f.label :comments %>
+    <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>
+  </div>    
+
+  <%= f.submit 'Submit', class: "btn btn-default" %>
+  
+<% end %>

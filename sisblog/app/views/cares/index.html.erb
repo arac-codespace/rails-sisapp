@@ -1,0 +1,93 @@
+<div class="dramas-index">
+  <div class= "container">
+    <div class = "row">
+      <div class = "col-md-8 col-md-offset-2">
+        <h1 class = "text-center"> List of Personal Care Articles </h1>
+        <p class= "text-center"> The following is a list of all personal care articles currently available in our database. </p>
+      </div>
+    </div>
+  </div>
+</div>  
+        
+
+<!-- Temporary add btn -->  
+<% if user_signed_in? %>
+  <div class='container'>
+    <div class='row'>
+      <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
+        <%= link_to new_care_path, class: "btn btn-default btn-block" do %>
+          <i class="fa fa-plus" aria-hidden="true"> Entry </i>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+<% end %>  
+
+<!-- Index Search bar! -->
+<div class = "index-search-box">
+  <%= render 'title_search_box'%>
+</div>
+
+<!-- Sorting Links -->
+<div class = 'container-fluid'>
+  <div class = 'row sorting-row'>
+    <div class = 'col-sm-offset-3 col-sm-2 col-md-2 col-md-offset-3'>
+      <strong>Sort by:</strong>
+    </div>
+    <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
+      <%= sort_link(@q, :title) do %>
+        <strong>Name</strong>
+      <% end %>      
+    </div>
+    <div class ="col-sm-3 col-md-2">
+      <%= sort_link(@q, :created_at) do %>
+        <strong>Review Date </strong>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<table id = "care-table" class='col-sm-12 col-md-12'>
+  <tr>
+    <th></th> <!-- No name for column -->
+  </tr>
+  <!-- Iterates through hash and checks if string query is present -->
+  <% @cares.each do |care| %>
+    <tr>
+      <% if @category.nil? %>
+      <td>
+        <!-- Table Data! -->
+        <div class = "container-fluid">
+          <div class = 'row results-row'>
+            <!-- Information spacing and link_to -->
+            <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
+               <div>
+                  <%= link_to care do %>
+                    <h2> <%= care.title%></h2>
+                  <% end %>
+                </div>
+              <p><%= care.care_description %></p>
+            </div>
+          </div>
+        </div>
+      <!-- Else if a string query is found... -->
+      <% elsif care.category.to_s == @category.to_s %>
+        <!-- Table Data! -->
+        <div class = "container-fluid">
+          <div class = 'row results-row'>
+            <!-- Information spacing and link_to -->
+            <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
+               <div>
+                  <%= link_to care do %>
+                    <h2> <%= care.title%></h2>
+                  <% end %>
+                </div>
+              <p><%= care.care_description %></p>
+            </div>
+          </div>
+        </div>        
+      </td>
+    </tr>
+    <% end %>
+  <% end %> <!-- each loop end-->  
+</table>

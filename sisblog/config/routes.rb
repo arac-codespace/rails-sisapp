@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'sobre_nosotras', to: 'pages#about'
   get 'resenas', to: 'pages#resenas'
+  get 'cuidado_personal', to: 'pages#cuidado_personal'
   
   #Only an authenticated user can get access to these actions
   authenticate :user do
@@ -55,7 +56,14 @@ Rails.application.routes.draw do
     resources :crafts, only: [:new, :create, :edit, :update, :destroy]
   end
   
-  resources :crafts, only: [:index, :show]    
+  resources :crafts, only: [:index, :show] 
+  
+  authenticate :user do
+  resources :cares, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :cares, only: [:index, :show]   
+  
   
   
 
