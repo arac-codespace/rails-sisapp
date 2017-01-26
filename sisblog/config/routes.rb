@@ -18,5 +18,11 @@ Rails.application.routes.draw do
   end
   
   resources :movies, only: [:index, :show]
+  
+  authenticate :user do
+    resources :animes, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :animes, only: [:index, :show]
 
 end
