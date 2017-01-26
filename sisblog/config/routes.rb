@@ -24,5 +24,13 @@ Rails.application.routes.draw do
   end
   
   resources :animes, only: [:index, :show]
+  
+  authenticate :user do
+    resources :books, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :books, only: [:index, :show]
+  
+  
 
 end
