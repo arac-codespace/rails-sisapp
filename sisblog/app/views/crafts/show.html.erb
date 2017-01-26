@@ -1,0 +1,41 @@
+<% if user_signed_in? %>
+  <div class='container-fluid'>
+    <div class='row add-delete-row'>
+      <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
+        <%= link_to edit_craft_path(id: @craft_show.id), class: "btn btn-default btn-block" do %>
+          <i class="fa fa-plus" aria-hidden="true"> Update </i>
+        <% end %>  
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <%= link_to craft_path(id: @craft_show.id), method: :delete, data: {confirm: "Really delete this profile?"}, class: "btn btn-default btn-block" do %>
+          <i class="fa fa-trash-o" aria-hidden="true"> Delete </i>
+        <% end %>  
+      </div>
+    </div>
+  </div>  
+<% end %>  
+
+<div class='container-fluid'>
+  <div class='row information-row'>
+    <div class = "col-xs-12 col-sm-12 col-md-12 description-col">
+      <div class = "well column">
+        <h3 class="text-center">Titulo: <%= @craft_show.title%></h3>
+        <h3> Descripcion:</h3>
+        <p><%= @craft_show.craft_description %></p>
+      </div>  
+    </div> 
+  </div>
+</div>     
+
+<div class='container'>
+  <div class='row'>
+    <div class="col-md-10 col-md-offset-1">
+      <h2> Opinion </h2>
+      <div class= "well">
+        <p><%= raw @craft_show.comments %></p>
+      </div>
+    </div>
+  </div>
+</div>  
+
+

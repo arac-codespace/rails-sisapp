@@ -48,7 +48,15 @@ Rails.application.routes.draw do
     resources :others, only: [:new, :create, :edit, :update, :destroy]
   end
   
-  resources :others, only: [:index, :show]    
+  resources :others, only: [:index, :show]   
+  
+  
+  authenticate :user do
+    resources :crafts, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :crafts, only: [:index, :show]    
+  
   
 
 end
