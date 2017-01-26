@@ -90,11 +90,13 @@
     </div> <!-- well closing div -->
 </div>
 
+<h1> Activity </h1>
 
+<!-- Using public_activity to collect information of tracked models and display it-->
+<div class='activities-resenas'>
+  <% @activities.each do |activity| %>
+    <!--render_activity looks for partials under views/public_activity/model-->
+    <%= render_activity activity %>
+  <% end %>
+</div>
 
-
- <!--= Drama.order('created_at DESC').limit(10) %>-->
-
-<!--% @dramas.each do |x| %>-->
-<!--%= x.title %>-->
-<!--% end %>-->

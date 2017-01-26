@@ -57,6 +57,9 @@ class MoviesController < ApplicationController
       @movie = Movie.new(movie_params)
       # Save the Movie object to the database
       if @movie.save
+        # When the model is saved, have public_activity track this activity and
+        # associate it with the create action.
+        @movie.create_activity :create
         flash[:success] = "Profile created."
         redirect_to movies_path 
       else

@@ -58,6 +58,9 @@ class DramasController < ApplicationController
       @drama = Drama.new(drama_params)
       # Save the Drama object to the database
       if @drama.save
+        # When the model is saved, have public_activity track this activity and
+        # associate it with the create action.
+        @drama.create_activity :create
         flash[:success] = " Profile created."
         redirect_to dramas_path 
       else

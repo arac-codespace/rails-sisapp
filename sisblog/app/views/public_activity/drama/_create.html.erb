@@ -1,0 +1,10 @@
+<!-- public_activity partial that changes depending on activity-->
+
+Added review for 
+<% if activity.trackable %>
+    <!-- The second activity.trackable is the path for the link_to! -->
+    the <%= link_to activity.trackable.title, activity.trackable %> drama series! Date: <%= activity.trackable.created_at.to_time.strftime('%a %b %d %H:%M:%S %Z %Y') %>. 
+<% else %>
+    a drama series that has since been removed!
+<% end %>
+
