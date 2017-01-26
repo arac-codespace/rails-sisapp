@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126184509) do
+ActiveRecord::Schema.define(version: 20170126190139) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(version: 20170126184509) do
     t.string   "rating"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "facial_products", force: :cascade do |t|
+    t.string   "title"
+    t.string   "actors"
+    t.date     "release_date"
+    t.text     "facialproduct_description"
+    t.text     "comments"
+    t.string   "rating"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   
   resources :makeups, only: [:index, :show]  
   
+  authenticate :user do
+    resources :facial_products, only: [:new, :create, :edit, :update, :destroy]
+  end
   
+  resources :facial_products, only: [:index, :show]    
 
 end
