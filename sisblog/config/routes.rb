@@ -31,6 +31,12 @@ Rails.application.routes.draw do
   
   resources :books, only: [:index, :show]
   
+  authenticate :user do
+    resources :makeups, only: [:new, :create, :edit, :update, :destroy]
+  end
+  
+  resources :makeups, only: [:index, :show]  
+  
   
 
 end
