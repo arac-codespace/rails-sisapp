@@ -76,7 +76,7 @@ class CaresController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def care_params
-        params.require(:care).permit(:title, :categories, :care_description, :comments)
+        params.require(:care).permit(:title, :category, :care_description, :comments)
     end
 
   

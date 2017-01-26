@@ -31,7 +31,7 @@
 <!-- Sorting Links -->
 <div class = 'container-fluid'>
   <div class = 'row sorting-row'>
-    <div class = 'col-sm-offset-3 col-sm-2 col-md-2 col-md-offset-3'>
+    <div class = 'col-sm-offset-2 col-sm-2 col-md-2 col-md-offset-2'>
       <strong>Sort by:</strong>
     </div>
     <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
@@ -39,11 +39,16 @@
         <strong>Name</strong>
       <% end %>      
     </div>
+    <div class ="col-sm-2 col-md-2">
+      <%= sort_link(@q, :category) do %>
+        <strong>Category</strong>
+      <% end %>
+    </div>
     <div class ="col-sm-3 col-md-2">
       <%= sort_link(@q, :created_at) do %>
         <strong>Review Date </strong>
       <% end %>
-    </div>
+    </div>    
   </div>
 </div>
 
@@ -66,6 +71,7 @@
                     <h2> <%= care.title%></h2>
                   <% end %>
                 </div>
+              <h4> <%= care.category %></h4>  
               <p><%= care.care_description %></p>
             </div>
           </div>
@@ -82,6 +88,7 @@
                     <h2> <%= care.title%></h2>
                   <% end %>
                 </div>
+              <h4> <%= care.category %></h4>  
               <p><%= care.care_description %></p>
             </div>
           </div>
