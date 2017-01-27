@@ -26,7 +26,11 @@ class PagesController < ApplicationController
     add_breadcrumb "Cuidado Personal", :cuidado_personal_path
   end
   
-  
-  
+  def recomendaciones
+    @activities = PublicActivity::Activity.order('created_at desc').limit(10)
+    
+    add_breadcrumb "Inicio", :root_path  
+    add_breadcrumb "Recomendaciones", :recomendaciones_path
+  end
   
 end

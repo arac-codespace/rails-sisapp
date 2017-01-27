@@ -1,0 +1,45 @@
+<div class='container-fluid'>
+  <div class='well resenas-well'>
+      <div class= 'well well-sm mini-well-resenas'>
+        <div class= 'row row-resenas'>
+            <div class= 'col-md-4'>
+              <div class= "anime">
+                <h2> <%= link_to "Todos nuestras recomendaciones!", recommendations_path %></h2>
+                <h2><%= link_to "Juegos", recommendations_path(cat: "Juegos") %></h2> 
+                <p> Descripcion blablabla </p>
+                <h2><%= link_to "Musica", recommendations_path(cat: "Musica")%></h2>
+                <p> Descripcion blablabla </p>
+                <h2><%= link_to "Videos",recommendations_path(cat: "Videos") %></h2>
+                <p> Descripcion blablabla </p>
+                <h2><%= link_to "Recetas", recommendations_path(cat: "Recetas")%></h2> 
+                <p> Descripcion blablabla </p>
+                <h2><%= link_to "Reflexiones",recommendations_path(cat: "Reflexiones")%></h2>
+                <p> Descripcion blablabla </p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- well closing div--> 
+</div>     
+
+
+
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class = "col-md-12">
+      <div class="panel panel-default">
+        <!-- Panel contents -->
+        <div class="panel-heading"> Activity Log </div>
+        <!-- Using public_activity to collect information of tracked models and display it-->
+        <% @activities.each do |activity| %>
+          <!--render_activity looks for partials under views/public_activity/model-->
+          <ul class= 'list-group'>
+            <li class= 'list-group-item'><%= render_activity activity %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

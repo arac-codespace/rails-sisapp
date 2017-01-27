@@ -1,0 +1,25 @@
+<%= form_for @recommendation, :html => {:multipart => true} do |f| %>
+          
+  <div class= "form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  
+  <div class = "form-group">
+    <%= f.label :category %>
+    <%= f.select :category, [ "Juegos", "Musica", 'Videos', "Recetas", "Reflexiones"], {}, class: 'form-control' %>
+  </div>  
+   
+  <div class= "form-group">
+    <%= f.label :recommendation_description %>
+    <%= f.text_area :recommendation_description, class: "form-control" %>
+  </div> 
+   
+  <div class= "form-group">
+    <%= f.label :comments %>
+    <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>
+  </div>    
+
+  <%= f.submit 'Submit', class: "btn btn-default" %>
+  
+<% end %>
