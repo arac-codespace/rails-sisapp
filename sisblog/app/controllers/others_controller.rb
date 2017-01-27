@@ -22,6 +22,7 @@ class OthersController < ApplicationController
   # GET /others/:id
   def show
     @other_show = Other.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Otro"
   end
   

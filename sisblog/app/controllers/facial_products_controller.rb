@@ -22,6 +22,7 @@ class FacialProductsController < ApplicationController
   # GET /facial_products/:id
   def show
     @facialproduct_show = FacialProduct.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Producto Facial"
   end
   

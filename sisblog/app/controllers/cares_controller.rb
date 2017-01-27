@@ -23,6 +23,7 @@ class CaresController < ApplicationController
   # GET /books/:id
   def show
     @care_show = Care.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Cuidado Personal"
   end
   

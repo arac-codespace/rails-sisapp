@@ -22,6 +22,7 @@ class MakeupsController < ApplicationController
   # GET /makeups/:id
   def show
     @makeup_show = Makeup.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Maquillaje"
   end
   

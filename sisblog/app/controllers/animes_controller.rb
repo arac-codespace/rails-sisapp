@@ -21,6 +21,7 @@ class AnimesController < ApplicationController
   
   # GET /animes/:id
   def show
+    @page_url = request.original_url
     @anime_show = Anime.find(params[:id])
      add_breadcrumb "Anime"
   end

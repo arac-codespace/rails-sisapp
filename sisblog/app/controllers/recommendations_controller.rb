@@ -21,6 +21,7 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/:id
   def show
     @recommendation_show = Recommendation.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Recomendacion"
   end
   

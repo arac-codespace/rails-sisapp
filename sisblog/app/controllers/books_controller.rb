@@ -22,6 +22,7 @@ class BooksController < ApplicationController
   # GET /books/:id
   def show
     @book_show = Book.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Libros"
   end
   

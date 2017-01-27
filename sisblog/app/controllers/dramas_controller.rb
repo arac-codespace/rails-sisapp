@@ -22,6 +22,7 @@ class DramasController < ApplicationController
   # GET /dramas/:id
   def show
     @drama_show = Drama.find(params[:id])
+    @page_url = request.original_url
      add_breadcrumb "Drama"
   end
   
