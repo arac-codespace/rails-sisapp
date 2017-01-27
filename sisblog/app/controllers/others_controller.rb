@@ -2,69 +2,69 @@ class OthersController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Other", :others_path
+  add_breadcrumb "Indice Otros", :others_path
   
 
 
-  # GET /dramas  
+  # GET /others  
   def index
     @q = Other.ransack(params[:q])
     @others = @q.result(distinct: true)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
-  # GET /dramas/new
+  # GET /others/new
   def new
     @other = Other.new
-    add_breadcrumb "Add a new entry."
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
-  # GET /dramas/:id
+  # GET /others/:id
   def show
     @other_show = Other.find(params[:id])
-     add_breadcrumb "Other"
+     add_breadcrumb "Otro"
   end
   
-  # GET /dramas/:id/edit
+  # GET /others/:id/edit
   def edit
     @other = Other.find(params[:id])
-    add_breadcrumb "Edit entry."    
+    add_breadcrumb "Editar articulo"    
   end
   
-  # PUT /dramas/:id
+  # PUT /others/:id
   def update
     @other = Other.find(params[:id])
     if @other.update_attributes(other_params)
-      flash[:success] = "Profile updated!"
-      # Redirect to the drama's profile
+      flash[:success] = "Articulo Revisado!"
+      # Redirect to the other's profile
       redirect_to other_path(id: params[:id])
     else
       render action: :edit #Don't send, go back to edit action.
     end
   end
   
-  # DELETE /dramas/:id
+  # DELETE /others/:id
   def destroy
     @other = Other.find(params[:id])
     @other.destroy
-    flash.notice= "Profile deleted."
-    # Redirect to dramas index
+    flash.notice= "Articulo eliminado."
+    # Redirect to others index
     redirect_to others_path
   end
   
-  #POST /dramas
+  #POST /others
   def create
-      # Mass assignment of form fields into Drama object
+      # Mass assignment of form fields into Other object
       @other = Other.new(other_params)
-      # Save the Drama object to the database
+      # Save the Other object to the database
       if @other.save
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @other.create_activity :create
-        flash[:success] = " Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to others_path 
       else
-        flash[:danger] = "Error: Profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to others_path
       end
   end

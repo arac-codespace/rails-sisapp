@@ -11,15 +11,15 @@
   </div>
 
   <div class= "form-group">
-    <%= f.label :actors %>
-    <%= f.text_field :actors, class: "form-control" %>
+    <%= f.label :studios %>
+    <%= f.text_field :studios, class: "form-control" %>
    </div> 
    
   <div class= "form-group">
     <%= f.label :anime_description %>
     <%= f.text_area :anime_description, class: "form-control" %>
   </div> 
-   
+   <!-- f.cktest_area is a ckeditor method to include its text editor into a form field-->
   <div class= "form-group">
     <%= f.label :comments %>
     <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>

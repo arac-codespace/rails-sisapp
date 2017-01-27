@@ -2,13 +2,9 @@ class RecommendationsController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Recomendaciones", :recomendaciones_path
-  add_breadcrumb "Articulos Recomendaciones", :recommendations_path
+  add_breadcrumb "Indice Recomendaciones", :recommendations_path
 
-  
-  
-
-
-  # GET /dramas  
+  # GET /recommendations  
   def index
     @q = Recommendation.ransack(params[:q])
     @recommendations = @q.result(distinct: true)
@@ -16,58 +12,58 @@ class RecommendationsController < ApplicationController
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
-  # GET /dramas/new
+  # GET /recommendations/new
   def new
     @recommendation = Recommendation.new
-    add_breadcrumb "Add a new entry."
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
-  # GET /dramas/:id
+  # GET /recommendations/:id
   def show
     @recommendation_show = Recommendation.find(params[:id])
-     add_breadcrumb "Recommendation"
+     add_breadcrumb "Recomendacion"
   end
   
-  # GET /dramas/:id/edit
+  # GET /recommendations/:id/edit
   def edit
     @recommendation = Recommendation.find(params[:id])
-    add_breadcrumb "Edit entry."    
+    add_breadcrumb "Editar articulo"    
   end
   
-  # PUT /dramas/:id
+  # PUT /recommendations/:id
   def update
     @recommendation = Recommendation.find(params[:id])
     if @recommendation.update_attributes(recommendation_params)
-      flash[:success] = "Profile updated!"
-      # Redirect to the drama's profile
+      flash[:success] = "Articulo Revisado!"
+      # Redirect to the recommendation's profile
       redirect_to recommendation_path(id: params[:id])
     else
       render action: :edit #Don't send, go back to edit action.
     end
   end
   
-  # DELETE /dramas/:id
+  # DELETE /recommendations/:id
   def destroy
     @recommendation = Recommendation.find(params[:id])
     @recommendation.destroy
-    flash.notice= "Profile deleted."
-    # Redirect to dramas index
+    flash.notice= "Articulo eliminado."
+    # Redirect to recommendations index
     redirect_to recommendations_path
   end
   
-  #POST /dramas
+  #POST /recommendations
   def create
-      # Mass assignment of form fields into Drama object
+      # Mass assignment of form fields into Recommendation object
       @recommendation = Recommendation.new(recommendation_params)
-      # Save the Drama object to the database
+      # Save the Recommendation object to the database
       if @recommendation.save
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @recommendation.create_activity :create
-        flash[:success] = " Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to recommendations_path 
       else
-        flash[:danger] = "Error: Profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to recommendations_path
       end
   end

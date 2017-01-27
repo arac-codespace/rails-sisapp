@@ -2,69 +2,69 @@ class BooksController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Book", :books_path
+  add_breadcrumb "Indice Libros", :books_path
   
 
 
-  # GET /dramas  
+  # GET /books  
   def index
     @q = Book.ransack(params[:q])
     @books = @q.result(distinct: true)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
-  # GET /dramas/new
+  # GET /books/new
   def new
     @book = Book.new
-    add_breadcrumb "Add a new entry."
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
-  # GET /dramas/:id
+  # GET /books/:id
   def show
     @book_show = Book.find(params[:id])
-     add_breadcrumb "Book"
+     add_breadcrumb "Libros"
   end
   
-  # GET /dramas/:id/edit
+  # GET /books/:id/edit
   def edit
     @book = Book.find(params[:id])
-    add_breadcrumb "Edit entry."    
+    add_breadcrumb "Editar articulo"    
   end
   
-  # PUT /dramas/:id
+  # PUT /books/:id
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
-      flash[:success] = "Profile updated!"
-      # Redirect to the drama's profile
+      flash[:success] = "Articulo Revisado!"
+      # Redirect to the book's profile
       redirect_to book_path(id: params[:id])
     else
       render action: :edit #Don't send, go back to edit action.
     end
   end
   
-  # DELETE /dramas/:id
+  # DELETE /books/:id
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash.notice= "Profile deleted."
-    # Redirect to dramas index
+    flash.notice= "Articulo eliminado."
+    # Redirect to books index
     redirect_to books_path
   end
   
-  #POST /dramas
+  #POST /books
   def create
-      # Mass assignment of form fields into Drama object
+      # Mass assignment of form fields into Book object
       @book = Book.new(book_params)
-      # Save the Drama object to the database
+      # Save the Book object to the database
       if @book.save
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @book.create_activity :create
-        flash[:success] = " Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to books_path 
       else
-        flash[:danger] = "Error: Profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to books_path
       end
   end

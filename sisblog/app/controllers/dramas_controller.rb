@@ -2,7 +2,7 @@ class DramasController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Drama", :dramas_path
+  add_breadcrumb "Indice Dramas", :dramas_path
   
 
 
@@ -16,7 +16,7 @@ class DramasController < ApplicationController
   # GET /dramas/new
   def new
     @drama = Drama.new
-    add_breadcrumb "Add a new entry."
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
   # GET /dramas/:id
@@ -28,14 +28,14 @@ class DramasController < ApplicationController
   # GET /dramas/:id/edit
   def edit
     @drama = Drama.find(params[:id])
-    add_breadcrumb "Edit entry."    
+    add_breadcrumb "Editar articulo"    
   end
   
   # PUT /dramas/:id
   def update
     @drama = Drama.find(params[:id])
     if @drama.update_attributes(drama_params)
-      flash[:success] = "Profile updated!"
+      flash[:success] = "Articulo Revisado!"
       # Redirect to the drama's profile
       redirect_to drama_path(id: params[:id])
     else
@@ -47,7 +47,7 @@ class DramasController < ApplicationController
   def destroy
     @drama = Drama.find(params[:id])
     @drama.destroy
-    flash.notice= "Profile deleted."
+    flash.notice= "Articulo eliminado."
     # Redirect to dramas index
     redirect_to dramas_path
   end
@@ -61,10 +61,10 @@ class DramasController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @drama.create_activity :create
-        flash[:success] = " Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to dramas_path 
       else
-        flash[:danger] = "Error: Profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to dramas_path
       end
   end

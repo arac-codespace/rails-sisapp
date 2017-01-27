@@ -14,7 +14,8 @@
     <%= f.label :care_description %>
     <%= f.text_area :care_description, class: "form-control" %>
   </div> 
-   
+  
+  <!-- f.cktest_area is a ckeditor method to include its text editor into a form field-->
   <div class= "form-group">
     <%= f.label :comments %>
     <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>

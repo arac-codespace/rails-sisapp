@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+# Method confirms that only one user is able to register on the site.
   before_action :one_user_registered?, only: [:new, :create]
 
   protected

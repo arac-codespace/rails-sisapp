@@ -3,6 +3,7 @@
   <div class= 'row'>
     <div class="col-sm-4 col-md-4">
       <div class="input-group">
+        <!--The visually hidden class is a css class to hide the label next to the search bar-->
         <%= f.label :title_or_comments_or_care_description_cont, "Search", class: "visuallyhidden form-control" %>
         <%= f.text_field :title_or_comments_or_care_description_cont ,placeholder: "Search field", class: 'form-control' %>
       <span class="input-group-btn">

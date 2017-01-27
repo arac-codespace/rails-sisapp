@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Movies", :movies_path
+  add_breadcrumb "Indice Peliculas", :movies_path
   
 
 
@@ -16,25 +16,25 @@ class MoviesController < ApplicationController
   # GET /movies/new
   def new
     @movie = Movie.new
-    add_breadcrumb "Add a new entry"
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
    # GET /movies/:id
   def show
     @movie_show = Movie.find(params[:id])
-     add_breadcrumb "Movie"
+     add_breadcrumb "Pelicula"
   end
   # GET /movies/:id/edit  
   def edit
     @movie = Movie.find(params[:id])
-    add_breadcrumb "Edit entry"    
+    add_breadcrumb "Editar articulo"    
   end
   
   # PUT /movies/:id
   def update
     @movie = Movie.find(params[:id])
     if @movie.update_attributes(movie_params)
-      flash[:success] = "Profile updated!"
+      flash[:success] = "Articulo Revisado!"
       # Redirect to the movie's profile
       redirect_to movie_path(id: params[:id])
     else
@@ -46,7 +46,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    flash.notice=" Profile deleted."
+    flash.notice= "Articulo eliminado."
 
     redirect_to movies_path
   end
@@ -60,10 +60,10 @@ class MoviesController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @movie.create_activity :create
-        flash[:success] = "Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to movies_path 
       else
-        flash[:danger] = "Error: profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to movies_path
       end
   end

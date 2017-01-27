@@ -2,69 +2,69 @@ class MakeupsController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Makeup", :makeups_path
+  add_breadcrumb "Indice Maquillajes", :makeups_path
   
 
 
-  # GET /dramas  
+  # GET /makeups  
   def index
     @q = Makeup.ransack(params[:q])
     @makeups = @q.result(distinct: true)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
-  # GET /dramas/new
+  # GET /makeups/new
   def new
     @makeup = Makeup.new
-    add_breadcrumb "Add a new entry."
+    add_breadcrumb "Añade una nueva entrada!"
   end
   
-  # GET /dramas/:id
+  # GET /makeups/:id
   def show
     @makeup_show = Makeup.find(params[:id])
-     add_breadcrumb "Makeup"
+     add_breadcrumb "Maquillaje"
   end
   
-  # GET /dramas/:id/edit
+  # GET /makeups/:id/edit
   def edit
     @makeup = Makeup.find(params[:id])
-    add_breadcrumb "Edit entry."    
+    add_breadcrumb "Editar articulo"    
   end
   
-  # PUT /dramas/:id
+  # PUT /makeups/:id
   def update
     @makeup = Makeup.find(params[:id])
     if @makeup.update_attributes(makeup_params)
-      flash[:success] = "Profile updated!"
-      # Redirect to the drama's profile
+      flash[:success] = "Articulo Revisado!"
+      # Redirect to the makeup's profile
       redirect_to makeup_path(id: params[:id])
     else
       render action: :edit #Don't send, go back to edit action.
     end
   end
   
-  # DELETE /dramas/:id
+  # DELETE /makeups/:id
   def destroy
     @makeup = Makeup.find(params[:id])
     @makeup.destroy
-    flash.notice= "Profile deleted."
-    # Redirect to dramas index
+    flash.notice= "Articulo eliminado."
+    # Redirect to makeups index
     redirect_to makeups_path
   end
   
-  #POST /dramas
+  #POST /makeups
   def create
-      # Mass assignment of form fields into Drama object
+      # Mass assignment of form fields into Makeup object
       @makeup = Makeup.new(makeup_params)
-      # Save the Drama object to the database
+      # Save the Makeup object to the database
       if @makeup.save
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @makeup.create_activity :create
-        flash[:success] = " Profile created."
+        flash[:success] = " Articulo creado!"
         redirect_to makeups_path 
       else
-        flash[:danger] = "Error: Profile not saved."
+        flash[:danger] = "Error: Articulo no se pudo crear."
         redirect_to makeups_path
       end
   end
