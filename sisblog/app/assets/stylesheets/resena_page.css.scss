@@ -1,14 +1,15 @@
 // Activity feed css
 
 .resenas-well {
-  background-image: url("blossom.jpg");
+  background-image: url("whitecherryblossom.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 20px;
 }
 
 div.well-sm {
-background-color: rgba(0, 0, 0, 0.17);
+background-color: rgba(0, 0, 0, 0.15);
 }
 
 .resenas-row div> h1> a, .resenas-row ul>li>a, .resenas-row h2>a {

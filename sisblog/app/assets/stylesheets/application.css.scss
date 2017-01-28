@@ -38,14 +38,23 @@ html {
 }
 
 body { 
-  background-color: #FFF;
+  // background-color: #FFF;
+  // background-color: #ae3e75; deep magenta 
+  // background-color: #dfde34; greenish-yellow
+  // background-color: #bfc3cc; gray-blue
+  // background-color: #eda5b3; light pink
+  // background-color: #3c135b; deep violet
+  background-color: #9fb7d0; //lighter blue
   margin: 0;
   padding: 0;
 }
 
 .banner {
-    background-image: url("test.jpg");
-    padding: 50px;
+    background-image: url("cherry-blossom.jpg");
+    padding: 100px;
+    background-position: 0px 73%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .breadcrumbs {
@@ -58,6 +67,7 @@ body {
 
 .navbar-inverse {
   border-radius: 0px;
+  background-color: #3c135b; //deep violet
 }
 
 #nav-collapse-s {
