@@ -33,7 +33,7 @@
         <!-- Panel contents -->
         <div class="panel-heading"> Activity Log </div>
         <!-- Using public_activity to collect information of tracked models and display it-->
-        <% @activities.each do |activity| %>
+        <% @activities_by_ctrl.each do |activity| %>
           <!--render_activity looks for partials under views/public_activity/model-->
           <ul class= 'list-group'>
             <li class= 'list-group-item'><%= render_activity activity %></li>
