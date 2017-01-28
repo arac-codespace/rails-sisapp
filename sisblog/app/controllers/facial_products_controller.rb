@@ -74,7 +74,7 @@ class FacialProductsController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def facialproduct_params
-        params.require(:facial_product).permit(:title, :facialproduct_description, :avatar, :actors, :release_date, :comments, :rating)
+        params.require(:facial_product).permit(:title, :facialproduct_description, :avatar, :company, :release_date, :comments, :rating)
     end
 
   

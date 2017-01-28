@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127012413) do
+ActiveRecord::Schema.define(version: 20170128031305) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170127012413) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
-    t.string   "actors"
+    t.string   "author"
     t.date     "release_date"
     t.text     "book_description"
     t.text     "comments"
@@ -60,11 +60,11 @@ ActiveRecord::Schema.define(version: 20170127012413) do
 
   create_table "cares", force: :cascade do |t|
     t.string   "title"
+    t.string   "category"
     t.text     "care_description"
     t.text     "comments"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.string   "category"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20170127012413) do
 
   create_table "facial_products", force: :cascade do |t|
     t.string   "title"
-    t.string   "actors"
+    t.string   "company"
     t.date     "release_date"
     t.text     "facialproduct_description"
     t.text     "comments"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20170127012413) do
 
   create_table "makeups", force: :cascade do |t|
     t.string   "title"
-    t.string   "actors"
+    t.string   "company"
     t.date     "release_date"
     t.text     "makeup_description"
     t.text     "comments"

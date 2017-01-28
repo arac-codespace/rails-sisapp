@@ -74,7 +74,7 @@ class BooksController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def book_params
-        params.require(:book).permit(:title, :book_description, :avatar, :actors, :release_date, :comments, :rating)
+        params.require(:book).permit(:title, :book_description, :avatar, :author, :release_date, :comments, :rating)
     end
 
   
