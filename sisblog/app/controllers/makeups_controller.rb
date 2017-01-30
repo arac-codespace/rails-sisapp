@@ -9,7 +9,7 @@ class MakeupsController < ApplicationController
   # GET /makeups  
   def index
     @q = Makeup.ransack(params[:q])
-    @makeups = @q.result(distinct: true)
+    @makeups = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   

@@ -7,7 +7,7 @@ class RecommendationsController < ApplicationController
   # GET /recommendations  
   def index
     @q = Recommendation.ransack(params[:q])
-    @recommendations = @q.result(distinct: true)
+    @recommendations = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     @category = params[:cat] #Variable catches query string for categorized views.
     # @category = params[:cat] #Variable catches query string for categorized views.
   end

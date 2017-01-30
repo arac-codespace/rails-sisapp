@@ -9,7 +9,7 @@ class DramasController < ApplicationController
   # GET /dramas  
   def index
     @q = Drama.ransack(params[:q])
-    @dramas = @q.result(distinct: true)
+    @dramas = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     @category = params[:cat] #Variable catches query string for categorized views.
   end
   

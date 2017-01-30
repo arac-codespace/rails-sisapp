@@ -9,7 +9,7 @@ class CaresController < ApplicationController
   # GET /books  
   def index
     @q = Care.ransack(params[:q])
-    @cares = @q.result(distinct: true)
+    @cares = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     @category = params[:cat] #Variable catches query string for categorized views.
     # @category = params[:cat] #Variable catches query string for categorized views.
   end

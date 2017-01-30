@@ -9,7 +9,7 @@ class OthersController < ApplicationController
   # GET /others  
   def index
     @q = Other.ransack(params[:q])
-    @others = @q.result(distinct: true)
+    @others = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   

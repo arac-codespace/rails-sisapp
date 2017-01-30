@@ -8,7 +8,7 @@ class CraftsController < ApplicationController
   # GET /crafts  
   def index
     @q = Craft.ransack(params[:q])
-    @crafts = @q.result(distinct: true)
+    @crafts = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
