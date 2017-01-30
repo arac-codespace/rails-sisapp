@@ -77,7 +77,11 @@
             <div class ='col-xs-4 col-md-3 avatar-col-index'>
               <div class ='index-column'>
                 <%= link_to movie do %>
-                  <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% if movie.avatar? %>
+                    <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% else %>
+                    <%= image_tag 'flower (1).png' %>
+                  <% end %>
                 <% end %>
                 <h4 class= "text-center"> Sakura Street's rating: </h4>
                 <div class= 'text-center'> <%= render_stars(movie.rating) %></div>
@@ -105,7 +109,11 @@
             <div class ='col-xs-4 col-md-3 avatar-col-index'>
               <div class = 'index-column'>
                 <%= link_to movie do %>
-                  <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% if movie.avatar? %>
+                    <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% else %>
+                    <%= image_tag 'flower (1).png' %>
+                  <% end %>
                 <% end %>
                 <h4 class= "text-center"> Sakura Street's rating: </h4>
                 <div class= 'text-center'> <%= render_stars(movie.rating) %></div>

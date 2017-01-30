@@ -19,7 +19,11 @@
   <div class='row information-row'>
     <div class = "col-xs-5 col-md-3 avatar-col">  
       <div class= 'column'>
-        <%= image_tag @book_show.avatar.url, class: 'avatar-show-img img-responsive img-thumbnail center-block' %>
+        <% if @book_show.avatar?%>
+          <%= image_tag @book_show.avatar.url, class: 'avatar-show-img img-responsive img-thumbnail center-block' %>
+        <% else %>
+          <%= image_tag "flower (1).png"%>
+        <% end %>
         <h4 class= "text-center"> Sakura Street's rating: </h4>
         <!-- render_stars method is in the helper file! -->
         <div class= 'text-center'> <%= render_stars(@book_show.rating) %></div>
@@ -32,7 +36,7 @@
         <h3> Descripcion:</h3>
         <p><%= @book_show.book_description %></p>
         <h4> Autor </h4> 
-        <p><%= @book_show.company %></p>
+        <p><%= @book_show.author %></p>
         <h4> Fecha de Publicacion </h4> 
         <p><%= @book_show.release_date.to_s %></p>
       </div>  

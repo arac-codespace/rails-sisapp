@@ -71,7 +71,11 @@
             <div class ='col-xs-4 col-md-3 avatar-col-index'>
               <div class ='index-column'>
                 <%= link_to facialproduct do %>
-                  <%= image_tag facialproduct.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% if facialproduct.avatar? %>
+                    <%= image_tag facialproduct.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% else %>
+                    <%= image_tag 'flower (1).png' %>
+                  <% end %>
                 <% end %>
                 <h4 class= "text-center"> Sakura Street's rating: </h4>
                 <div class= 'text-center'> <%= render_stars(facialproduct.rating) %></div>
@@ -94,4 +98,4 @@
   <% end %> <!-- each loop end-->  
 </table>
 
-<%= will_paginate @posts %>
+<%= will_paginate @facialproducts %>

@@ -19,7 +19,13 @@
   <div class='row information-row'>
     <div class = "col-xs-5 col-md-3 avatar-col">  
       <div class= 'column'>
-        <%= image_tag @makeup_show.avatar.url, class: 'avatar-show-img img-responsive img-thumbnail center-block' %>
+        <%= link_to @makeup_show do %>
+          <% if @makeup_show.avatar? %>
+            <%= image_tag @makeup_show.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+          <% else %>
+            <%= image_tag 'flower (1).png' %>
+          <% end %>
+        <% end %>
         <h4 class= "text-center"> Sakura Street's rating: </h4>
         <div class= 'text-center'> <%= render_stars(@makeup_show.rating) %></div>
       </div>    

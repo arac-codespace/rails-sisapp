@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    add_breadcrumb "Inicio", :root_path  
   end
   
   def about

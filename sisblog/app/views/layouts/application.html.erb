@@ -74,9 +74,11 @@
     
     <div class= "container">
       <div class = 'breadcrumbs'>
-        <%= render_breadcrumbs %>
-        <!-- Ransack yield -->
-      </div>  
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs :tag => :li, :separator => "" %>
+        </ol> 
+      </div>
+      
       <%= yield %>
     </div>
     
