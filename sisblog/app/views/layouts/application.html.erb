@@ -56,15 +56,6 @@
       </nav><!-- /.navbar -->
     </div><!-- /.container-fluid -->   
     
-    <!-- Search Form -->              
-    <!--<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse-s">-->
-    <!--  <form class="navbar-form navbar-right" role="search">-->
-    <!--    <div class="form-group">-->
-    <!--      <input type="text" class="form-control" placeholder="Search" />-->
-    <!--    </div>-->
-    <!--    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>-->
-    <!--  </form>-->
-    <!--</div>  -->
      
     <div class  = "container flash-container">
         <% flash.each do |type,msg| %>
@@ -73,12 +64,13 @@
     </div>
     
     <div class= "container">
-      <div class = 'breadcrumbs'>
-        <ol class="breadcrumb">
-          <%= render_breadcrumbs :tag => :li, :separator => "" %>
-        </ol> 
-      </div>
-      
+      <% unless current_page?(root_path)%>
+        <div class = 'breadcrumbs'>
+          <ol class="breadcrumb">
+            <%= render_breadcrumbs :tag => :li, :separator => "" %>
+          </ol> 
+        </div>
+      <% end %>
       <%= yield %>
     </div>
     

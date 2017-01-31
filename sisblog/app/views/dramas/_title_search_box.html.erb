@@ -1,7 +1,7 @@
 <%= search_form_for @q do |f| %>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-sm-4 col-md-4">
     <div class="input-group">
       <span class="input-group-btn">
         <%= f.submit 'Go!', class: 'btn btn-default' %>
@@ -9,5 +9,6 @@
         <%= f.text_field :title_or_comments_or_actors_or_category_or_drama_description_cont ,placeholder: "Search field", class: 'form-control' %>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+</div><!-- /.row -->  
+
 <% end %>

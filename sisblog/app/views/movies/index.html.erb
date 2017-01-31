@@ -1,141 +1,134 @@
 <div class="index-header">
   <div class= "container">
     <div class = "row">
-      <div class = "col-md-8 col-md-offset-2">
+      <div class = "col-md-12">
+        
         <h1 class = "text-center"> Listado de Articulos de Peliculas. </h1>
+
+        <!-- Index Search bar! -->
+        <div class = "index-search-box">
+          <%= render 'title_search_box'%>
+        </div>
+        
+        <!-- Temporary add btn -->  
+        <% if user_signed_in? %>
+          <div class='row'>
+            <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
+              <%= link_to new_movie_path, class: "btn btn-default btn-block" do %>
+                <i class="fa fa-plus" aria-hidden="true"> Añade </i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>  
+        
+        <!-- Sorting Links -->
+        <div class = 'row sorting-row'>
+          <div class = 'col-sm-2 col-md-2'>
+            <strong>Ordenar por:</strong>
+          </div>
+          <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
+            <%= sort_link(@q, :title) do %>
+              <strong>Nombre</strong>
+            <% end %>      
+          </div>
+          <div class ="col-sm-2 col-md-2">
+            <%= sort_link(@q, :category) do %>
+            <strong>Categoria </strong>
+            <% end %>      
+          </div>
+          <div class ="col-sm-2 col-md-2">
+            <%= sort_link(@q, :rating) do %>
+              <strong>Rating </strong>
+            <% end %>
+          </div>    
+          <div class ="col-sm-2 col-md-2">
+            <%= sort_link(@q, :release_date) do %>
+              <strong>Fecha Publicacion </strong>
+            <% end %>      
+          </div>
+          <div class ="col-sm-2 col-md-2">
+            <%= sort_link(@q, :created_at) do %>
+              <strong>Fecha Reseña </strong>
+            <% end %>
+          </div>
+        </div>
+
+        <table id = "movie-table" class= 'col-sm-12 col-md-12'>
+          <tr>
+            <th></th> <!-- No name for column -->
+          </tr>
+          <!-- Iterates through hash and checks if string query is present -->
+          <% @movies.each do |movie| %>
+            <tr>
+            <% if @category.nil? %>  
+              <td>
+                <!-- Table Data! -->
+                <div class = 'row results-row'>
+                  <!-- Image spacing and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class ='index-column'>
+                      <%= link_to movie do %>
+                        <% if movie.avatar? %>
+                          <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>
+                      <% end %>
+                      <h4 class= "text-center"> Sakura Street's rating: </h4>
+                      <div class= 'text-center'> <%= render_stars(movie.rating) %></div>
+                    </div>
+                  </div>   
+                  <!-- Information spacing and link_to -->
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
+                     <div>
+                        <%= link_to movie do %>
+                          <h2> <%= movie.title%></h2>
+                        <% end %>
+                      </div>
+                    <h4> <%= movie.category %></h4>
+                    <h4> <%= movie.actors %></h4>
+                    <p><%= movie.movie_description %></p>
+                  </div>
+                </div>
+            <!-- Else if a string query is found... -->
+            <% elsif movie.category.to_s == @category.to_s %>
+                <!-- Table data! -->
+                <div class = 'row results-row'>
+                  <!-- Avatar styling and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class = 'index-column'>
+                      <%= link_to movie do %>
+                        <% if movie.avatar? %>
+                          <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>
+                      <% end %>
+                      <h4 class= "text-center"> Sakura Street's rating: </h4>
+                      <div class= 'text-center'> <%= render_stars(movie.rating) %></div>
+                    </div>
+                  </div>                     
+                  <!-- Information styling and link_to  -->
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
+                    <%= link_to movie do %>
+                      <div>
+                        <h2> <%= movie.title%></h2>
+                      </div>
+                    <% end %>
+                    <h4> <%= movie.category %></h4>
+                    <h4> <%= movie.actors %></h4>
+                    <p><%= movie.movie_description %></p>
+                  </div> <!-- description-col-index end -->
+                </div> <!-- row end -->
+              </td>
+            </tr>
+            <% end %> <!-- if condition end -->
+          <% end %> <!-- each loop end-->  
+        </table>
+        
+        <%= will_paginate @posts %>
+
       </div>
     </div>
   </div>
 </div>  
-        
-
-<!-- Temporary add btn -->  
-<% if user_signed_in? %>
-  <div class='container'>
-    <div class='row'>
-      <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
-        <%= link_to new_movie_path, class: "btn btn-default btn-block" do %>
-          <i class="fa fa-plus" aria-hidden="true"> Añade </i>
-        <% end %>
-      </div>
-    </div>
-  </div>  
-<% end %>  
-
-<!-- Index Search bar! -->
-<div class = "index-search-box">
-  <%= render 'title_search_box'%>
-</div>
-
-<!-- Sorting Links -->
-<div class = 'container-fluid'>
-  <div class = 'row sorting-row'>
-    <div class = 'col-sm-2 col-md-2'>
-      <strong>Ordenar por:</strong>
-    </div>
-    <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
-      <%= sort_link(@q, :title) do %>
-        <strong>Nombre</strong>
-      <% end %>      
-    </div>
-    <div class ="col-sm-2 col-md-2">
-      <%= sort_link(@q, :category) do %>
-      <strong>Categoria </strong>
-      <% end %>      
-    </div>
-    <div class ="col-sm-2 col-md-2">
-      <%= sort_link(@q, :rating) do %>
-        <strong>Rating </strong>
-      <% end %>
-    </div>    
-    <div class ="col-sm-2 col-md-2">
-      <%= sort_link(@q, :release_date) do %>
-        <strong>Fecha Publicacion </strong>
-      <% end %>      
-    </div>
-    <div class ="col-sm-2 col-md-2">
-      <%= sort_link(@q, :created_at) do %>
-        <strong>Fecha Reseña </strong>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<table id = "movie-table" class= 'col-md-12'>
-  <tr>
-    <th></th> <!-- No name for column -->
-  </tr>
-  <!-- Iterates through hash and checks if string query is present -->
-  <% @movies.each do |movie| %>
-    <tr>
-    <% if @category.nil? %>  
-      <td>
-        <!-- Table Data! -->
-        <div class = "container-fluid">
-          <div class = 'row results-row'>
-            <!-- Image spacing and link_to -->
-            <div class ='col-xs-4 col-md-3 avatar-col-index'>
-              <div class ='index-column'>
-                <%= link_to movie do %>
-                  <% if movie.avatar? %>
-                    <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
-                  <% else %>
-                    <%= image_tag 'flower (1).png' %>
-                  <% end %>
-                <% end %>
-                <h4 class= "text-center"> Sakura Street's rating: </h4>
-                <div class= 'text-center'> <%= render_stars(movie.rating) %></div>
-              </div>
-            </div>   
-            <!-- Information spacing and link_to -->
-            <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
-               <div>
-                  <%= link_to movie do %>
-                    <h2> <%= movie.title%></h2>
-                  <% end %>
-                </div>
-              <h4> <%= movie.category %></h4>
-              <h4> <%= movie.actors %></h4>
-              <p><%= movie.movie_description %></p>
-            </div>
-          </div>
-        </div>
-    <!-- Else if a string query is found... -->
-    <% elsif movie.category.to_s == @category.to_s %>
-        <!-- Table data! -->
-        <div class = "container-fluid">
-          <div class = 'row results-row'>
-            <!-- Avatar styling and link_to -->
-            <div class ='col-xs-4 col-md-3 avatar-col-index'>
-              <div class = 'index-column'>
-                <%= link_to movie do %>
-                  <% if movie.avatar? %>
-                    <%= image_tag movie.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
-                  <% else %>
-                    <%= image_tag 'flower (1).png' %>
-                  <% end %>
-                <% end %>
-                <h4 class= "text-center"> Sakura Street's rating: </h4>
-                <div class= 'text-center'> <%= render_stars(movie.rating) %></div>
-              </div>
-            </div>                     
-            <!-- Information styling and link_to  -->
-            <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
-              <%= link_to movie do %>
-                <div>
-                  <h2> <%= movie.title%></h2>
-                </div>
-              <% end %>
-              <h4> <%= movie.category %></h4>
-              <h4> <%= movie.actors %></h4>
-              <p><%= movie.movie_description %></p>
-            </div> <!-- description-col-index end -->
-          </div> <!-- row end -->
-        </div>  <!-- container-fluid end tag -->
-      </td>
-    </tr>
-    <% end %> <!-- if condition end -->
-  <% end %> <!-- each loop end-->  
-</table>
-
-<%= will_paginate @posts %>
