@@ -45,7 +45,6 @@
           <div class = "index-search-box">
             <%= render 'title_search_box'%>
           </div>
-          
         </div>
         
         <div class= 'btn-div'>
@@ -55,7 +54,7 @@
               <% end %>
             </div>
           <% end %>
-        </div>
+        </div> <!--function-row end -->
 
 
         
@@ -97,36 +96,42 @@
                     <p><%= drama.drama_description %></p>
                   </div>
                 </div>
+              </td>
+            </tr>                
             <!-- Else if a string query is found... -->
+            <tr>
             <% elsif drama.category.to_s == @category.to_s %>
-                <!-- Table data! -->
+              <td>
+                <!-- Table Data! -->
                 <div class = 'row results-row'>
-                  <!-- Avatar styling and link_to -->
+                  <!-- Image spacing and link_to -->
                   <div class ='col-xs-4 col-md-3 avatar-col-index'>
-                    <div class = 'index-column'>
+                    <div class ='index-column'>
                       <%= link_to drama do %>
                         <% if drama.avatar? %>
                           <%= image_tag drama.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
                         <% else %>
-                          <%= image_tag 'flower (1).png', class: 'avatar-index-img img-responsive center-block' %>
-                        <% end %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>  
                       <% end %>
-                      <h4 class= "text-center"> Sakura Street's rating: </h4>
+                      <h4 class= "text-center brand-text"> Sakura Street's </h4>
+                      <p class='text-center avatar-rating'>rating:</p>
                       <div class= 'text-center'> <%= render_stars(drama.rating) %></div>
                     </div>
-                  </div>                     
-                  <!-- Information styling and link_to  -->
+                  </div>   
+                  <!-- Information spacing and link_to -->
                   <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
-                    <%= link_to drama do %>
-                      <div>
-                        <h2> <%= drama.title%></h2>
+                     <div>
+                        <%= link_to drama do %>
+                          <h2> <%= drama.title%></h2>
+                        <% end %>
                       </div>
-                    <% end %>
                     <h4> <%= drama.category %></h4>
                     <h4> <%= drama.actors %></h4>
                     <p><%= drama.drama_description %></p>
-                  </div> <!-- description-col-index end -->
-                </div> <!-- row end -->
+                  </div>
+                </div>
+                
               </td>
             </tr>
             <% end %> <!-- if condition end -->

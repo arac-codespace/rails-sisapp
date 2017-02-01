@@ -3,50 +3,53 @@
     <div class = "row">
       <div class = "col-md-12">
         
-        <h1 class = "text-center"> Listado de Articulos de Maquillajes </h1>
-        
-        <!-- Index Search bar! -->
-        <div class = "index-search-box">
-          <%= render 'title_search_box'%>
-        </div>        
-        
-        <!-- Temporary add btn -->  
-        <% if user_signed_in? %>
-          <div class='row'>
-            <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
-              <%= link_to new_makeup_path, class: "btn btn-default btn-block" do %>
-                <i class="fa fa-plus" aria-hidden="true"> Añade </i>
-              <% end %>
-            </div>
-          </div>
-        <% end %>  
-
-        <!-- Sorting Links -->
-        <div class = 'row sorting-row'>
-          <div class = 'col-sm-2 col-md-2 col-md-offset-1'>
-            <strong>Ordenar por:</strong>
-          </div>
-          <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
-            <%= sort_link(@q, :title) do %>
-              <strong>Nombre</strong>
-            <% end %>      
-          </div>
-          <div class ="col-sm-2 col-md-2">
-            <%= sort_link(@q, :rating) do %>
-              <strong>Rating </strong>
-            <% end %>
-          </div>    
-          <div class ="col-sm-3 col-md-2">
-            <%= sort_link(@q, :release_date) do %>
-              <strong>Fecha Publicacion </strong>
-            <% end %>      
-          </div>
-          <div class ="col-sm-3 col-md-2">
-            <%= sort_link(@q, :created_at) do %>
-              <strong>Fecha Reseña </strong>
-            <% end %>
+        <div class='row function-row '>
+          
+          <!-- Sorting Links -->
+          <div class="dropdown col-sm-8 col-md-8">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort by:
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li>            
+                <%= sort_link(@q, :title) do %>
+                  Nombre
+                <% end %>   
+              </li>
+              <li>
+                <%= sort_link(@q, :rating) do %>
+                  Rating
+                <% end %>      
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>           
+                <%= sort_link(@q, :release_date) do %>
+                  Fecha Publicacion
+                <% end %>  
+              </li>
+              <li>
+                <%= sort_link(@q, :created_at) do %>
+                  Fecha Reseña
+                <% end %>      
+              </li>
+            </ul>
+          </div> 
+          
+          <!-- Index Search bar! -->
+          <div class = "index-search-box">
+            <%= render 'title_search_box'%>
           </div>
         </div>
+        
+        <div class= 'btn-div'>
+          <% if user_signed_in? %>
+            <div class="col-sm-2 col-md-1">
+              <%= link_to new_makeup_path, class: "btn btn-default btn-block fa fa-plus" do %>
+              <% end %>
+            </div>
+          <% end %>
+        </div> <!--function-row end -->
 
         <table id = "makeup-table" class='col-sm-12 col-md-12'>
           <tr>
@@ -68,7 +71,8 @@
                           <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
                         <% end %>
                       <% end %>
-                      <h4 class= "text-center"> Sakura Street's rating: </h4>
+                      <h4 class= "text-center brand-text"> Sakura Street's </h4>
+                      <p class='text-center avatar-rating'>rating:</p>
                       <div class= 'text-center'> <%= render_stars(makeup.rating) %></div>
                     </div>
                   </div>   

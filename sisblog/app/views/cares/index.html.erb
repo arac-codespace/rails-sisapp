@@ -3,45 +3,49 @@
     <div class = "row">
       <div class = "col-md-12">
         
-        <h1 class = "text-center"> Listado de Articulos de Cuidado Personal </h1>
+        <div class='row function-row '>
+          
+          <!-- Sorting Links -->
+          <div class="dropdown col-sm-8 col-md-8">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sort by:
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li>            
+                <%= sort_link(@q, :title) do %>
+                  Nombre
+                <% end %>   
+              </li>
+              <li>
+                <%= sort_link(@q, :category) do %>
+                  Categoria
+                <% end %>       
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= sort_link(@q, :created_at) do %>
+                  Fecha Reseña
+                <% end %>      
+              </li>
+            </ul>
+          </div> 
+          
+          <!-- Index Search bar! -->
+          <div class = "index-search-box">
+            <%= render 'title_search_box'%>
+          </div>
+        </div>
         
-        <!-- Index Search bar! -->
-        <div class = "index-search-box">
-          <%= render 'title_search_box'%>
-        </div>        
-
-        <!-- Conditional add btn -->  
-        <% if user_signed_in? %>
-          <div class='row'>
-            <div class="col-sm-2 col-sm-offset-10 col-md-2 col-md-offset-10">
-              <%= link_to new_care_path, class: "btn btn-default btn-block" do %>
-                <i class="fa fa-plus" aria-hidden="true"> Añade </i>
+        <div class= 'btn-div'>
+          <% if user_signed_in? %>
+            <div class="col-sm-2 col-md-1">
+              <%= link_to new_care_path, class: "btn btn-default btn-block fa fa-plus" do %>
               <% end %>
             </div>
-          </div>
-        <% end %>  
-        
-        <!-- Sorting Links -->
-        <div class = 'row sorting-row'>
-          <div class = 'col-sm-offset-2 col-sm-2 col-md-2 col-md-offset-2'>
-            <strong>Ordenar por:</strong>
-          </div>
-          <div class ="col-sm-2 col-sm-offset-0 col-md-offset-0 col-md-2">
-            <%= sort_link(@q, :title) do %>
-              <strong>Nombre</strong>
-            <% end %>      
-          </div>
-          <div class ="col-sm-2 col-md-2">
-            <%= sort_link(@q, :category) do %>
-              <strong>Categoria</strong>
-            <% end %>
-          </div>
-          <div class ="col-sm-3 col-md-2">
-            <%= sort_link(@q, :created_at) do %>
-              <strong>Fecha Reseña</strong>
-            <% end %>
-          </div>    
-        </div>
+          <% end %>
+        </div> <!--function-row end -->
+
 
         <table id = "care-table" class='col-sm-12 col-md-12'>
           <tr>
@@ -65,8 +69,12 @@
                     <p><%= care.care_description %></p>
                   </div>
                 </div>
-              <!-- Else if a string query is found... -->
-              <% elsif care.category.to_s == @category.to_s %>
+              </td>
+            </tr>                
+            <!-- Else if a string query is found... -->
+            <tr>
+            <% elsif care.category.to_s == @category.to_s %>
+              <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
                   <!-- Information spacing and link_to -->
