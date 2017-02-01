@@ -33,6 +33,18 @@
   box-sizing: border-box;
 }
 
+.brand-text {
+  font-family: 'Pacifico', cursive;
+}
+
+p, h4 {
+  font-family: 'Quicksand';
+}
+
+h2 {
+  font-family: 'Lobster Two';
+}
+
 html {
   height: 100%;
 }
@@ -44,8 +56,11 @@ body {
   // background-color: #bfc3cc; gray-blue
   // background-color: #eda5b3; light pink
   // background-color: #3c135b; deep violet
-  background-color: #9fb7d0; //lighter blue
-  margin: 0;
+  // background-color: #9fb7d0; //lighter blue
+  background-color: #cc99fe; //light-purple
+  // background-image: url('sayagata-400px.png');
+  // background-size: cover;
+
   padding: 0;
 }
 
@@ -132,3 +147,27 @@ body {
   width: 1px;
 }
 
+.home-callout {
+  background-image: url('blogbg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 65%;
+
+}
+
+.home-heading {
+  font-size: 110px;
+  text-shadow: 4px 3px black;
+  color: white;
+}
+
+.home-paragraph {
+  text-shadow: 2px 0px black;
+  color: white;
+  font-size: 25px;
+}
+
+.gif-test > img {
+  height: 200px;
+  position: absolute;
+}
