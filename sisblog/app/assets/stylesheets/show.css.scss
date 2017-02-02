@@ -6,15 +6,19 @@
 // Two divs of equal height!
 .information-row {
   display: flex; /* equal height of the children */
-  background-color: rgb(110, 123, 158);
+  background-color: #3c135b;
   margin-bottom: 30px;
+  border-radius: 5px ;
+  border: 5px solid #26093c;
 }
 
 .description-col,.avatar-col {
   padding: 1em;
-  border: solid;
 }
 
+.description-col {
+  background-color: #cc99fe;
+}
 
 // Center image vertically! Use in element container. Have it inherit from the bootstrap col parent. This is a css3 method!
 .column {  
@@ -22,4 +26,31 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.column > h4 {
+  color: #ff40c7;
+}
+
+.column > h3 {
+  color: #73ff1e;
+}
+
+.column > h1 {
+  color: #ff40c7;
+}
+
+div.d-well {
+    background-color: white;
+}
+
+.body-row {
+  border: 5px solid #3c135b;
+  border-radius: 5px;
+}
+
+.body-title {
+    background-color: #3c135b;
+    color: #ff40c7;
+    padding: 5px 2px;  
 }

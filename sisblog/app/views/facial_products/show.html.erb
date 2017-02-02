@@ -1,60 +1,67 @@
-<% if user_signed_in? %>
-  <div class='container-fluid'>
-    <div class='row add-delete-row'>
-      <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
-        <%= link_to edit_facial_product_path(id: @facialproduct_show.id), class: "btn btn-default btn-block" do %>
-          <i class="fa fa-plus" aria-hidden="true"> Revisar </i>
+<div class="index-header">
+  <div class= "container">
+    <div class = "row">
+      <div class = "col-md-12">
+          
+        <!-- Admin action -->
+        <% if user_signed_in? %>
+          <div class='row add-delete-row'>
+            <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
+              <%= link_to edit_facial_product_path(id: @facialproduct_show.id), class: "btn btn-default btn-block" do %>
+                <i class="fa fa-plus" aria-hidden="true"> Revisar </i>
+              <% end %>  
+            </div>
+            <div class="col-sm-2 col-md-2">
+              <%= link_to facial_product_path(id: @facialproduct_show.id), method: :delete, data: {confirm: "Borrar este articulo?"}, class: "btn btn-default btn-block" do %>
+                <i class="fa fa-trash-o" aria-hidden="true"> Elimiar </i>
+              <% end %>  
+            </div>
+          </div>
         <% end %>  
-      </div>
-      <div class="col-sm-2 col-md-2">
-        <%= link_to facial_product_path(id: @facialproduct_show.id), method: :delete, data: {confirm: "Borrar este articulo?"}, class: "btn btn-default btn-block" do %>
-          <i class="fa fa-trash-o" aria-hidden="true"> Elimiar </i>
-        <% end %>  
-      </div>
-    </div>
-  </div>  
-<% end %>  
-
-<div class='container-fluid'>
-  <div class='row information-row'>
-    <div class = "col-xs-5 col-md-3 avatar-col">  
-      <div class= 'column'>
-        <%= link_to @facialproduct_show do %>
-          <% if @facialproduct_show.avatar? %>
-            <%= image_tag @facialproduct_show.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
-          <% else %>
-            <%= image_tag 'flower (1).png' %>
-          <% end %>
-        <% end %>        
-        <h4 class= "text-center"> Sakura Street's rating: </h4>
-        <div class= 'text-center'> <%= render_stars(@facialproduct_show.rating) %></div>
-      </div>    
-    </div>
-    
-    <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
-      <div class = "well column">
-        <h3 class="text-center">Titulo: <%= @facialproduct_show.title%></h3>
-        <h3> Descripcion:</h3>
-        <p><%= @facialproduct_show.facialproduct_description %></p>
-        <h4> Compañia </h4> 
-        <p><%= @facialproduct_show.company %></p>
-        <h4> Fecha de Publicacion </h4> 
-        <p><%= @facialproduct_show.release_date.to_s %></p>
+        
+        <!-- Information Section -->
+          <div class='row information-row'>
+            <div class = "col-xs-5 col-md-3 avatar-col">  
+              <div class= 'column'>
+                <%= link_to @facialproduct_show do %>
+                  <% if @facialproduct_show.avatar? %>
+                    <%= image_tag @facialproduct_show.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% else %>
+                    <%= image_tag 'flower (1).png' %>
+                  <% end %>
+                <% end %>
+                  <h4 class= "text-center brand-text"> Sakura Street's </h4>
+                  <p class='text-center avatar-rating'>rating:</p>
+                  <div class= 'text-center'> <%= render_stars(@facialproduct_show.rating) %></div>
+              </div>    
+            </div>
+            
+            <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
+              <div class = "well d-well column">
+                <h1 class="text-center">Titulo: <%= @facialproduct_show.title%></h1>
+                <h3> Descripcion:</h3>
+                <p><%= @facialproduct_show.facialproduct_description %></p>
+                <h3> Compania </h3> 
+                <p><%= @facialproduct_show.company %></p>
+                <h3> Fecha de Publicacion </h3> 
+                <p><%= @facialproduct_show.release_date.to_s %></p>
+              </div>  
+            </div> 
+          </div>
+      
+        <!-- Body section -->
+          <div class='row body-row'>
+            <div class="col-md-12">
+              <h2 class= 'text-center body-title'> Opinion </h2>
+              <div class= "well d-well">
+                <p><%= raw @facialproduct_show.comments %></p>
+              </div>
+            </div>
+          </div>
+        <!-- Comment section render -->
+        <%= render 'disqus' %>
+  
       </div>  
-    </div> 
+    </div>  
   </div>
-</div>     
-
-<div class='container'>
-  <div class='row'>
-    <div class="col-md-10 col-md-offset-1">
-      <h2> Opinion </h2>
-      <div class= "well">
-        <p><%= raw @facialproduct_show.comments %></p>
-      </div>
-    </div>
-  </div>
-</div>  
-
-
-<%= render 'disqus' %>
+</div>
