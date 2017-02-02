@@ -55,7 +55,7 @@
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
-    </div><!-- /.container-fluid -->   
+    </div><!-- /.container- -->   
     
      
     <div class  = "container flash-container">
@@ -64,16 +64,15 @@
         <% end %>
     </div>
     
-    <div class= "container-fluid">
-      <% unless current_page?(root_path)%>
-        <div class = 'breadcrumbs col-md-12'>
-          <ol class="breadcrumb">
-            <%= render_breadcrumbs :tag => :li, :separator => "" %>
-          </ol> 
-        </div>
-      <% end %>
+      <div class= "col-sm-13 col-md-12 col-lg-12 ">
+        <% unless current_page?(root_path)%>
+            <ol class="breadcrumb">
+              <%= render_breadcrumbs :tag => :li, :separator => "" %>
+            </ol> 
+        <% end %>
+      </div>
+
       <%= yield %>
-    </div>
     
   </body>
 </html>
