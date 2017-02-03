@@ -1,68 +1,70 @@
-<div class='container-fluid'>
-  <div class='well resenas-well'>
+<div class='container'>
+  <div class = "col-md-12">
+    <div class='well resenas-well'>
       <div class= 'well well-sm mini-well-resenas'>
-        
-      <div class='row resenas-row'>
-        <div class = "col-md-6">
-          <div class= "drama-block">
-            <h1><%= link_to "Drama Index", dramas_path %></h1>
-            <div class= "cat-block"> <!-- Group of categories -->
-              <ul class= 'list-unstyled'>
-                  <li>
-                    <h4><%= link_to "Coreanos", dramas_path(cat: "Coreanos") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Japoneses", dramas_path(cat: "Japones") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Taiwaneses", dramas_path(cat: "Taiwanes") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Otros", dramas_path(cat: "Otros") %></h4>
-                  </li>
-              </ul>
-            </div> <!-- Categories end tag -->
-          </div> <!-- Drama block end tag -->
-        </div>
-        
-        <div class = "col-md-6">
-          <div class= " movies-block">
-            <h1><%= link_to "Peliculas Index", movies_path %></h1>
-            <div class= "cat-block"> <!-- Group of categories -->
-              <ul class = 'list-unstyled'>
-                  <li>
-                    <h4><%= link_to "Coreanos", movies_path(cat: "Coreanos") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Japoneses", movies_path(cat: "Japones") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Taiwaneses", movies_path(cat: "Taiwanes") %></h4>
-                  </li>
-                  <li>
-                    <h4><%= link_to "Otros", movies_path(cat: "Otros") %></h4>
-                  </li>
-              </ul>
-            </div> <!-- Categories end tag -->
-          </div> <!-- Drama block end tag -->
-        </div>
-        
-        <div class= 'col-md-4'>
-          <div class= "anime">
-            <h2><%= link_to "Anime", animes_path%></h2> 
-            <h2><%= link_to "Libros", books_path %></h2>
-            <h2><%= link_to "Maquillaje", makeups_path %></h2> 
+          
+        <div class='row resenas-row'>
+          <div class = "col-md-6">
+            <div class= "drama-block">
+              <h1><%= link_to "Drama Index", dramas_path %></h1>
+              <div class= "cat-block"> <!-- Group of categories -->
+                <ul class= 'list-unstyled'>
+                    <li>
+                      <h4><%= link_to "Coreanos", dramas_path(cat: "Coreanos") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Japoneses", dramas_path(cat: "Japones") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Taiwaneses", dramas_path(cat: "Taiwanes") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Otros", dramas_path(cat: "Otros") %></h4>
+                    </li>
+                </ul>
+              </div> <!-- Categories end tag -->
+            </div> <!-- Drama block end tag -->
+          </div>
+          
+          <div class = "col-md-6">
+            <div class= " movies-block">
+              <h1><%= link_to "Peliculas Index", movies_path %></h1>
+              <div class= "cat-block"> <!-- Group of categories -->
+                <ul class = 'list-unstyled'>
+                    <li>
+                      <h4><%= link_to "Coreanos", movies_path(cat: "Coreanos") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Japoneses", movies_path(cat: "Japones") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Taiwaneses", movies_path(cat: "Taiwanes") %></h4>
+                    </li>
+                    <li>
+                      <h4><%= link_to "Otros", movies_path(cat: "Otros") %></h4>
+                    </li>
+                </ul>
+              </div> <!-- Categories end tag -->
+            </div> <!-- Drama block end tag -->
+          </div>
+          
+          <div class= 'col-md-4'>
+            <div class= "anime">
+              <h2><%= link_to "Anime", animes_path%></h2> 
+              <h2><%= link_to "Libros", books_path %></h2>
+              <h2><%= link_to "Maquillaje", makeups_path %></h2> 
+            </div>
+          </div>
+          
+          <div class="col-md-offset-2 col-md-4" >
+            <div class= "productos-faciales">
+              <h2><%= link_to "Productos Faciales", facial_products_path %></h2>     
+              <h2><%= link_to "Otros", others_path %></h2>  
+            </div>
           </div>
         </div>
-        
-        <div class="col-md-offset-2 col-md-4" >
-          <div class= "productos-faciales">
-            <h2><%= link_to "Productos Faciales", facial_products_path %></h2>     
-            <h2><%= link_to "Otros", others_path %></h2>  
-          </div>
-        </div>
+      
       </div>
-    
     </div>
   </div> <!-- well closing div--> 
 </div>     
@@ -70,19 +72,19 @@
 
 
 
-<div class='container-fluid'>
+<div class='container'>
   <div class='row'>
-    <div class = "col-md-12">
+    <div class = "col-md-offset-1 col-md-10">
       <div class="panel panel-default">
         <!-- Panel contents -->
-        <div class="panel-heading"> Activity Log </div>
+        <div class="panel-heading"> <h4>Activity Log</h4></div>
         <!-- Using public_activity to collect information of tracked models and display it-->
         <!-- In the controller file, activities_by_ctrl is conditioned to display certain entries 
         that belongs to a specific controller -->
         <% @activities_by_ctrl.each do |activity| %>
           <!--render_activity looks for partials under views/public_activity/model-->
           <ul class= 'list-group'>
-            <li class= 'list-group-item'><%= render_activity activity %></li>
+            <li class= 'list-group-item'><p><%= render_activity activity %></p></li>
           </ul>
        <% end %>
       </div>

@@ -1,32 +1,33 @@
-<div class='container-fluid'>
-  <div class='well resenas-well'>
-    <div class= 'well well-sm mini-well-resenas'>
-      
-      <div class= 'row resenas-row'>
-        <div class= 'col-md-6'>
-          <div class= "anime">
-            <h1> <%= link_to "Todos los Articulos", cares_path %></h1>
-            <h2><%= link_to "Autoestima", cares_path(cat: "Autoestima") %></h2> 
-            <p> Descripcion blablabla </p>
-            <h2><%= link_to "Fisico", cares_path(cat: "Fisico") %></h2>
-            <p> Descripcion blablabla </p>
-            <h2><%= link_to "Emocional", cares_path(cat: "Emocional") %></h2>
-            <p> Descripcion blablabla </p>
-            <h2><%= link_to "Cuidados Faciales", cares_path(cat: "Cuidado Facial") %></h2> 
-            <p> Descripcion blablabla </p>
-            <h2><%= link_to "Otros", cares_path(cat: "Otros") %></h2>
-            <p> Descripcion blablabla </p>
+<div class='container'>
+  <div class = "col-md-12">
+    <div class='well resenas-well'>
+      <div class= 'well well-sm mini-well-resenas'>
+          
+        <div class= 'row resenas-row'>
+          <div class= 'col-md-6'>
+            <div class= "anime">
+              <h1> <%= link_to "Todos los Articulos", cares_path %></h1>
+              <h2><%= link_to "Autoestima", cares_path(cat: "Autoestima") %></h2> 
+              <p> Descripcion blablabla </p>
+              <h2><%= link_to "Fisico", cares_path(cat: "Fisico") %></h2>
+              <p> Descripcion blablabla </p>
+              <h2><%= link_to "Emocional", cares_path(cat: "Emocional") %></h2>
+              <p> Descripcion blablabla </p>
+              <h2><%= link_to "Cuidados Faciales", cares_path(cat: "Cuidado Facial") %></h2> 
+              <p> Descripcion blablabla </p>
+              <h2><%= link_to "Otros", cares_path(cat: "Otros") %></h2>
+              <p> Descripcion blablabla </p>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
 <div class='container-fluid'>
   <div class='row'>
-    <div class = "col-md-12">
+    <div class = "col-md-offset-1 col-md-10">
       <div class="panel panel-default">
         <!-- Panel contents -->
         <div class="panel-heading"> Activity Log </div>

@@ -60,16 +60,27 @@ h2, h1 {
 }
 
 // Breadcrumps stylign
-.breadcrumbs {
+.breadcrumb {
   margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid #3c135b;
+  a {
+    color: #3c135b;
+  }
 }
 
 // Navbar CSS
 
 // CSS for the navbar brand logo
-.brand-text {
+.brand-text, .navbar-inverse .navbar-brand {
   font-family: 'Pacifico', cursive;
+  color: white;
 }
+
+.navbar-inverse .navbar-brand:hover {
+  color: #f74ca8;
+}
+
 
 // Code eliminates the padding at the navbar's sides for full width navbar
 .nav-container {

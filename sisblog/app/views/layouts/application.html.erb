@@ -58,21 +58,28 @@
     </div><!-- /.container- -->   
     
      
-    <div class  = "container flash-container">
+    <div class  = "container-fluid flash-container">
         <% flash.each do |type,msg| %>
             <%= content_tag :div, msg, class: "alert alert-#{type}" %>
         <% end %>
     </div>
-    
+
+    <div class = 'container-fluid'>
+    <div class = 'row'>
       <div class= "col-sm-13 col-md-12 col-lg-12 ">
-        <% unless current_page?(root_path)%>
+        <!-- Shows breadcrumbs unless the pages are the following... -->
+        <% unless current_page?(root_path) or controller.controller_name.to_s == 'sessions' or controller.controller_name.to_s == 'passwords' or controller.controller_name.to_s == 'registrations'%>
             <ol class="breadcrumb">
               <%= render_breadcrumbs :tag => :li, :separator => "" %>
             </ol> 
         <% end %>
       </div>
-
-      <%= yield %>
+    </div>
+    </div>
+    
+      <div class='yield-div'>
+        <%= yield %>
+      </div>
     
   </body>
 </html>
