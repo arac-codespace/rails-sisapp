@@ -44,6 +44,8 @@ div.d-well {
     background-color: white;
     // Keeps body text inside well boundary
     word-wrap: break-word;
+    // Breaks word between any two letters
+    word-break: break-all;
 }
 
 .body-row {

@@ -73,7 +73,7 @@ class CraftsController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def craft_params
-        params.require(:craft).permit(:title, :craft_description, :comments)
+        params.require(:craft).permit(:title, :craft_description, :comments, :avatar)
     end
 
   
