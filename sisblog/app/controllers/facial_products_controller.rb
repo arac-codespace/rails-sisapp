@@ -29,14 +29,14 @@ class FacialProductsController < ApplicationController
   # GET /facial_products/:id/edit
   def edit
     @facialproduct = FacialProduct.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /facial_products/:id
   def update
     @facialproduct = FacialProduct.find(params[:id])
     if @facialproduct.update_attributes(facialproduct_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the facial product's profile
       redirect_to facial_product_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class FacialProductsController < ApplicationController
   def destroy
     @facialproduct = FacialProduct.find(params[:id])
     @facialproduct.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to facial_products index
     redirect_to facial_products_path
   end
@@ -62,10 +62,10 @@ class FacialProductsController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @facialproduct.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to facial_products_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to facial_products_path
       end
   end

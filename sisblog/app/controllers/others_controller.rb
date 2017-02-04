@@ -29,14 +29,14 @@ class OthersController < ApplicationController
   # GET /others/:id/edit
   def edit
     @other = Other.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /others/:id
   def update
     @other = Other.find(params[:id])
     if @other.update_attributes(other_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the other's profile
       redirect_to other_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class OthersController < ApplicationController
   def destroy
     @other = Other.find(params[:id])
     @other.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to others index
     redirect_to others_path
   end
@@ -62,10 +62,10 @@ class OthersController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @other.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to others_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to others_path
       end
   end

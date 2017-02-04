@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Peliculas", :movies_path
+  add_breadcrumb "Indice Películas", :movies_path
   
 
 
@@ -23,19 +23,19 @@ class MoviesController < ApplicationController
   def show
     @movie_show = Movie.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Pelicula"
+     add_breadcrumb "Película"
   end
   # GET /movies/:id/edit  
   def edit
     @movie = Movie.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /movies/:id
   def update
     @movie = Movie.find(params[:id])
     if @movie.update_attributes(movie_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the movie's profile
       redirect_to movie_path(id: params[:id])
     else
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
 
     redirect_to movies_path
   end
@@ -61,10 +61,10 @@ class MoviesController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @movie.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to movies_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to movies_path
       end
   end

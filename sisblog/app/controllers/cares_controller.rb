@@ -30,14 +30,14 @@ class CaresController < ApplicationController
   # GET /books/:id/edit
   def edit
     @care = Care.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /books/:id
   def update
     @care = Care.find(params[:id])
     if @care.update_attributes(care_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the book's profile
       redirect_to care_path(id: params[:id])
     else
@@ -49,7 +49,7 @@ class CaresController < ApplicationController
   def destroy
     @care = Care.find(params[:id])
     @care.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to books index
     redirect_to cares_path
   end
@@ -63,10 +63,10 @@ class CaresController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @care.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to cares_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to cares_path
       end
   end

@@ -28,14 +28,14 @@ class RecommendationsController < ApplicationController
   # GET /recommendations/:id/edit
   def edit
     @recommendation = Recommendation.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /recommendations/:id
   def update
     @recommendation = Recommendation.find(params[:id])
     if @recommendation.update_attributes(recommendation_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the recommendation's profile
       redirect_to recommendation_path(id: params[:id])
     else
@@ -47,7 +47,7 @@ class RecommendationsController < ApplicationController
   def destroy
     @recommendation = Recommendation.find(params[:id])
     @recommendation.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to recommendations index
     redirect_to recommendations_path
   end
@@ -61,10 +61,10 @@ class RecommendationsController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @recommendation.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to recommendations_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to recommendations_path
       end
   end

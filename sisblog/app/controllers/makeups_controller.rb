@@ -29,14 +29,14 @@ class MakeupsController < ApplicationController
   # GET /makeups/:id/edit
   def edit
     @makeup = Makeup.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /makeups/:id
   def update
     @makeup = Makeup.find(params[:id])
     if @makeup.update_attributes(makeup_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the makeup's profile
       redirect_to makeup_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class MakeupsController < ApplicationController
   def destroy
     @makeup = Makeup.find(params[:id])
     @makeup.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to makeups index
     redirect_to makeups_path
   end
@@ -62,10 +62,10 @@ class MakeupsController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @makeup.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to makeups_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to makeups_path
       end
   end

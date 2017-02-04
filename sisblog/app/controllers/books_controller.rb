@@ -29,14 +29,14 @@ class BooksController < ApplicationController
   # GET /books/:id/edit
   def edit
     @book = Book.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /books/:id
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the book's profile
       redirect_to book_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to books index
     redirect_to books_path
   end
@@ -62,10 +62,10 @@ class BooksController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @book.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to books_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to books_path
       end
   end

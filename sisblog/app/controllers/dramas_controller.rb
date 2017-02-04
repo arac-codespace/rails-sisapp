@@ -29,14 +29,14 @@ class DramasController < ApplicationController
   # GET /dramas/:id/edit
   def edit
     @drama = Drama.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /dramas/:id
   def update
     @drama = Drama.find(params[:id])
     if @drama.update_attributes(drama_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the drama's profile
       redirect_to drama_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class DramasController < ApplicationController
   def destroy
     @drama = Drama.find(params[:id])
     @drama.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to dramas index
     redirect_to dramas_path
   end
@@ -62,10 +62,10 @@ class DramasController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @drama.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to dramas_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to dramas_path
       end
   end
