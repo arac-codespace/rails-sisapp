@@ -38,13 +38,15 @@
             
             <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
               <div class = "well d-well column">
-                <h1 class="text-center">Titulo: <%= @facialproduct_show.title%></h1>
-                <h3> Descripcion:</h3>
+                <h1 class="text-center">Título: <%= @facialproduct_show.title%></h1>
+                <h3> Descripción:</h3>
                 <p><%= @facialproduct_show.facialproduct_description %></p>
-                <h3> Compania </h3> 
+                <h3> Companía: </h3> 
                 <p><%= @facialproduct_show.company %></p>
-                <h3> Fecha de Publicacion </h3> 
-                <p><%= @facialproduct_show.release_date.to_s %></p>
+                <h3> Fecha de Publicación: </h3> 
+                <p><%= @facialproduct_show.release_date.strftime("%b %d, %Y").to_s %></p>
+                <h3> Fecha de Reseña: </h3>
+                <p><%= @facialproduct_show.created_at.strftime("%b %d, %Y").to_s %></p>
               </div>  
             </div> 
           </div>
@@ -52,7 +54,7 @@
         <!-- Body section -->
           <div class='row body-row'>
             <div class="col-md-12">
-              <h2 class= 'text-center body-title'> Opinion </h2>
+              <h2 class= 'text-center body-title'> Opinión </h2>
               <div class= "well d-well">
                 <p><%= raw @facialproduct_show.comments %></p>
               </div>

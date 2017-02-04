@@ -1,30 +1,30 @@
 <%= form_for @recommendation, :html => {:multipart => true} do |f| %>
           
   <div class= "form-group">
-    <%= f.label :title %>
+    <%= f.label :title, "Título" %>
     <%= f.text_field :title, :required => true, class: "form-control" %>
   </div>
   
   <div class = "form-group">
-    <%= f.label :category %>
-    <%= f.select :category, [ "Juegos", "Musica", 'Videos', "Recetas", "Reflexiones"], {}, class: 'form-control' %>
+    <%= f.label :category, "Categoría" %>
+    <%= f.select :category, [ "Juegos", "Musica", "Recetas", "Reflexiones", 'Videos'], {}, class: 'form-control' %>
   </div>  
    
   <div class= "form-group">
-    <%= f.label :recommendation_description %>
+    <%= f.label :recommendation_description, "Descripción" %>
     <%= f.text_area :recommendation_description, class: "form-control" %>
   </div> 
    
   <div class= "form-group">
-    <%= f.label :comments %>
+    <%= f.label :comments, "Reseña" %>
     <%= f.cktext_area :comments, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>
   </div>    
   
   <div class = "form-group">
-    <%= f.label :avatar %>
+    <%= f.label :avatar, "Imagen" %>
     <%= f.file_field :avatar, class: 'form-control' %>
   </div>  
   
-  <%= f.submit 'Submit', class: "btn btn-default" %>
+  <%= f.submit 'Enviar', class: "btn btn-default" %>
   
 <% end %>

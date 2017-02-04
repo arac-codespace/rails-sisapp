@@ -35,9 +35,11 @@
             
             <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
               <div class = "well d-well column">
-                <h1 class="text-center">Titulo: <%= @craft_show.title%></h1>
-                <h3> Descripcion:</h3>
+                <h1 class="text-center">Título: <%= @craft_show.title%></h1>
+                <h3> Descripción:</h3>
                 <p><%= @craft_show.craft_description %></p>
+                <h3> Fecha de Reseña: </h3>
+                <p><%= @craft_show.created_at.strftime("%b %d, %Y").to_s %></p>                
               </div>  
             </div> 
           </div>
@@ -45,7 +47,7 @@
         <!-- Body section -->
           <div class='row body-row'>
             <div class="col-md-12">
-              <h2 class= 'text-center body-title'> Opinion </h2>
+              <h2 class= 'text-center body-title'> Opinión </h2>
               <div class= "well d-well">
                 <p><%= raw @craft_show.comments %></p>
               </div>

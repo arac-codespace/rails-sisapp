@@ -14,9 +14,14 @@
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <li>            
                 <%= sort_link(@q, :title) do %>
-                  Nombre
+                  Título
                 <% end %>   
               </li>
+              <li>
+                <%= sort_link(@q, :company) do %>
+                  Compañía
+                <% end %>      
+              </li>              
               <li>
                 <%= sort_link(@q, :rating) do %>
                   Rating
@@ -25,7 +30,7 @@
               <li role="separator" class="divider"></li>
               <li>           
                 <%= sort_link(@q, :release_date) do %>
-                  Fecha Publicacion
+                  Fecha Publicación
                 <% end %>  
               </li>
               <li>
@@ -84,6 +89,8 @@
                         <% end %>
                       </div>
                     <h4><%= makeup.company %></h4>
+                    <h4> Fecha de Publicación: </h4> 
+                    <p><%= makeup.release_date.strftime("%b %d, %Y").to_s %></p>
                     <p><%= makeup.makeup_description %></p>
                   </div>
                 </div>

@@ -29,14 +29,14 @@ class AnimesController < ApplicationController
   # GET /animes/:id/edit
   def edit
     @anime = Anime.find(params[:id])
-    add_breadcrumb "Editar articulo"    
+    add_breadcrumb "Editar artículo"    
   end
   
   # PUT /animes/:id
   def update
     @anime = Anime.find(params[:id])
     if @anime.update_attributes(anime_params)
-      flash[:success] = "Articulo Revisado!"
+      flash[:success] = "Artículo Revisado!"
       # Redirect to the anime's profile
       redirect_to anime_path(id: params[:id])
     else
@@ -48,7 +48,7 @@ class AnimesController < ApplicationController
   def destroy
     @anime = Anime.find(params[:id])
     @anime.destroy
-    flash.notice= "Articulo eliminado."
+    flash.notice= "Artículo eliminado."
     # Redirect to animes index
     redirect_to animes_path
   end
@@ -62,10 +62,10 @@ class AnimesController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @anime.create_activity :create
-        flash[:success] = " Articulo creado!"
+        flash[:success] = " Artículo creado!"
         redirect_to animes_path 
       else
-        flash[:danger] = "Error: Articulo no se pudo crear."
+        flash[:danger] = "Error: Artículo no se pudo crear."
         redirect_to animes_path
       end
   end

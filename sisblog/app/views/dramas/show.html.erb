@@ -38,15 +38,17 @@
             
             <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
               <div class = "well d-well column">
-                <h1 class="text-center">Titulo: <%= @drama_show.title%></h1>
-                <h3> Descripcion:</h3>
+                <h1 class="text-center">Título: <%= @drama_show.title%></h1>
+                <h3> Descripción:</h3>
                 <p><%= @drama_show.drama_description %></p>
-                <h3> Categoria</h3> 
+                <h3> Categoría:</h3> 
                 <p><%= @drama_show.category %></p>
-                <h3> Actores </h3> 
+                <h3> Actores: </h3> 
                 <p><%= @drama_show.actors %></p>
-                <h3> Fecha de Publicacion </h3> 
-                <p><%= @drama_show.release_date.to_s %></p>
+                <h3> Fecha de Publicación: </h3> 
+                <p><%= @drama_show.release_date.strftime("%b %d, %Y").to_s %></p>
+                <h3> Fecha de Reseña: </h3>
+                <p><%= @drama_show.created_at.strftime("%b %d, %Y").to_s %></p>
               </div>  
             </div> 
           </div>
@@ -54,7 +56,7 @@
         <!-- Body section -->
           <div class='row body-row'>
             <div class="col-md-12">
-              <h2 class= 'text-center body-title'> Opinion </h2>
+              <h2 class= 'text-center body-title'> Opinión </h2>
               <div class= "well d-well">
                 <p><%= raw @drama_show.comments %></p>
               </div>
