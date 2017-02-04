@@ -73,7 +73,7 @@ class RecommendationsController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def recommendation_params
-        params.require(:recommendation).permit(:title, :category, :recommendation_description, :comments)
+        params.require(:recommendation).permit(:title, :category, :recommendation_description, :comments, :avatar)
     end
 
   

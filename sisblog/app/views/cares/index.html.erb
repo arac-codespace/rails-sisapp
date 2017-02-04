@@ -58,14 +58,25 @@
               <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
+                  <!-- Image spacing and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class ='index-column'>
+                      <%= link_to care do %>
+                        <% if care.avatar? %>
+                          <%= image_tag care.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>  
+                      <% end %>
+                    </div>
+                  </div>   
                   <!-- Information spacing and link_to -->
-                  <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
                      <div>
                         <%= link_to care do %>
                           <h2> <%= care.title%></h2>
                         <% end %>
                       </div>
-                    <h4> <%= care.category %></h4>  
                     <p><%= care.care_description %></p>
                   </div>
                 </div>
@@ -77,14 +88,25 @@
               <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
-                  <!-- Information spacing and link_to -->
-                  <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
-                   <div>
+                  <!-- Image spacing and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class ='index-column'>
                       <%= link_to care do %>
-                        <h2> <%= care.title%></h2>
+                        <% if care.avatar? %>
+                          <%= image_tag care.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>  
                       <% end %>
                     </div>
-                    <h4> <%= care.category %></h4>  
+                  </div>   
+                  <!-- Information spacing and link_to -->
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
+                     <div>
+                        <%= link_to care do %>
+                          <h2> <%= care.title%></h2>
+                        <% end %>
+                      </div>
                     <p><%= care.care_description %></p>
                   </div>
                 </div>

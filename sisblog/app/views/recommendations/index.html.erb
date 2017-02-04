@@ -9,7 +9,7 @@
           <div class="dropdown col-sm-8 col-md-8">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sort by:
-              <span class="caret"></span>
+              <span class="recommendationt"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <li>            
@@ -46,6 +46,7 @@
           <% end %>
         </div> <!--function-row end -->
 
+
         <table id = "recommendation-table" class='col-sm-12 col-md-12'>
           <tr>
             <th></th> <!-- No name for column -->
@@ -57,29 +58,55 @@
               <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
+                  <!-- Image spacing and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class ='index-column'>
+                      <%= link_to recommendation do %>
+                        <% if recommendation.avatar? %>
+                          <%= image_tag recommendation.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>  
+                      <% end %>
+                    </div>
+                  </div>   
                   <!-- Information spacing and link_to -->
-                  <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
                      <div>
                         <%= link_to recommendation do %>
                           <h2> <%= recommendation.title%></h2>
                         <% end %>
                       </div>
-                    <h4> <%= recommendation.category %></h4>  
                     <p><%= recommendation.recommendation_description %></p>
                   </div>
                 </div>
-              <!-- Else if a string query is found... -->
-              <% elsif recommendation.category.to_s == @category.to_s %>
+              </td>
+            </tr>                
+            <!-- Else if a string query is found... -->
+            <tr>
+            <% elsif recommendation.category.to_s == @category.to_s %>
+              <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
+                  <!-- Image spacing and link_to -->
+                  <div class ='col-xs-4 col-md-3 avatar-col-index'>
+                    <div class ='index-column'>
+                      <%= link_to recommendation do %>
+                        <% if recommendation.avatar? %>
+                          <%= image_tag recommendation.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                        <% else %>
+                          <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
+                        <% end %>  
+                      <% end %>
+                    </div>
+                  </div>   
                   <!-- Information spacing and link_to -->
-                  <div class ='col-xs-12 col-sm-12 col-md-12 description-col-index'>
+                  <div class ='col-xs-12 col-sm-8 col-md-9 description-col-index'>
                      <div>
                         <%= link_to recommendation do %>
                           <h2> <%= recommendation.title%></h2>
                         <% end %>
                       </div>
-                    <h4> <%= recommendation.category %></h4>  
                     <p><%= recommendation.recommendation_description %></p>
                   </div>
                 </div>
@@ -90,9 +117,8 @@
         </table>
         
         <%= will_paginate @posts %>
-        
 
       </div>
     </div>
   </div>
-</div> 
+</div>  

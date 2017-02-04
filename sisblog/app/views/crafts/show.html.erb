@@ -20,17 +20,28 @@
         <% end %>  
         
         <!-- Information Section -->
-
-        <div class='row information-row'>
-          <div class = "col-xs-12 col-sm-12 col-md-12 description-col">
-            <div class = "well d-well column">
-              <h1 class="text-center">Titulo: <%= @craft_show.title%></h1>
-              <h3> Descripcion:</h3>
-              <p><%= @craft_show.craft_description %></p>
-            </div>  
-          </div> 
-        </div>
-
+          <div class='row information-row'>
+            <div class = "col-xs-5 col-md-3 avatar-col">  
+              <div class= 'column'>
+                <%= link_to @craft_show do %>
+                  <% if @craft_show.avatar? %>
+                    <%= image_tag @craft_show.avatar.url, class: 'avatar-index-img img-responsive center-block' %>
+                  <% else %>
+                    <%= image_tag 'flower (1).png' %>
+                  <% end %>
+                <% end %>
+              </div>    
+            </div>
+            
+            <div class = "col-xs-12 col-sm-7 col-md-9 description-col">
+              <div class = "well d-well column">
+                <h1 class="text-center">Titulo: <%= @craft_show.title%></h1>
+                <h3> Descripcion:</h3>
+                <p><%= @craft_show.craft_description %></p>
+              </div>  
+            </div> 
+          </div>
+      
         <!-- Body section -->
           <div class='row body-row'>
             <div class="col-md-12">

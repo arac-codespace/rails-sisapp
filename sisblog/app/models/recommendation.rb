@@ -2,6 +2,11 @@ class Recommendation < ActiveRecord::Base
   include PublicActivity::Common
   
   before_create :randomize_id
+
+  has_attached_file :avatar, 
+                    styles: { medium: "300x300>", thumb: "100x100>" }, 
+                    default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/   
   
   # Generates an unique id for the object to use for disqus unique id 
   private
