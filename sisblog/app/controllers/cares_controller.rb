@@ -1,4 +1,6 @@
 class CaresController < ApplicationController
+ 
+  
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
   add_breadcrumb "Cuidado Personal", :cuidado_personal_path

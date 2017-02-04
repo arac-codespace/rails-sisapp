@@ -4,7 +4,7 @@
       <div class = "col-md-12">
           
         <!-- Admin action -->
-        <% if user_signed_in? %>
+        <% if current_user.admin? %>
           <div class='row add-delete-row'>
             <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
               <%= link_to edit_craft_path(id: @craft_show.id), class: "btn btn-default btn-block" do %>
