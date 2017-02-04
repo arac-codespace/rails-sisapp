@@ -1,7 +1,7 @@
 # README
 
 How To: Set up devise as a single user system
-https://github.com/plataformatec/devise/wiki/How-To:-Set-up-devise-as-a-single-user-system - completed
+https://github.com/plataformatec/devise/wiki/How-To:-Set-up-devise-as-a-single-user-system
 
 How to add an admin role
 https://github.com/plataformatec/devise/wiki/How-To%3A-Add-an-Admin-Role
