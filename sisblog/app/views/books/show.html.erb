@@ -4,7 +4,7 @@
       <div class = "col-md-12">
           
         <!-- Admin action -->
-        <% if current_user.admin? %>
+        <% if current_user.try(:admin?) %>
           <div class='row add-delete-row'>
             <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
               <%= link_to edit_book_path(id: @book_show.id), class: "btn btn-default btn-block" do %>
