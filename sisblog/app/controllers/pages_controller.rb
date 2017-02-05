@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   
   def resenas
     # Public_activity collects tracked model information here.
-    # The information to be tracked is designated in the new form view file of the specific model!
+    # The information to be tracked is designated in the controller file!
     @activities = PublicActivity::Activity.order('created_at desc').limit(10)
     # Here I take the public_activity hash, order it and put a condition on it.
     # The idea of the following code is to limit the tracked activity to the pertaining web section.

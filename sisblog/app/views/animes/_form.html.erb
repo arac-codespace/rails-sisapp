@@ -1,5 +1,6 @@
 <%= form_for @anime, :html => {:multipart => true} do |f| %>
-          
+  <!-- :required forces a user to fill that specific form. -->
+  
   <div class= "form-group">
     <%= f.label :title, "Título" %>
     <%= f.text_field :title, :required => true, class: "form-control" %>
