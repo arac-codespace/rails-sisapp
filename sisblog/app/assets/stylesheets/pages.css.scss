@@ -23,18 +23,18 @@ div.well-sm {
 .home-div {
   position: absolute;
   margin-top: 50%;
-  background-color: rgba(60, 19, 91, 0.25);  
+  background-color: rgba(60, 19, 91, 0.25);
+}  
+
+.home-div > .home-p {
+  font-size: 1.5em;
 }
+
 .home-h {
   color: white;
   text-shadow: 2px 2px black;
   font-size: 3em;
 }
-
-.home-div > p {
-  font-size: 12px;
-}
-
 
 // Activity Log CSS
 
@@ -48,3 +48,26 @@ div.panel-default {
     border-color: #3c135b;
 }
 
+// About Page CSS
+div.gif-items {
+    text-align: center;
+    margin-top : 30px;
+    margin-bottom: 30px;
+}
+
+div.gif-items > img {
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+}
+
+div.gif-teism :after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+.about-row {
+  color: white;
+  text-shadow: 2px 2px black;
+}
