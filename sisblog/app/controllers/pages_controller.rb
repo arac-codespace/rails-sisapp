@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  
   def home
     add_breadcrumb "Inicio", :root_path  
   end
@@ -9,12 +10,15 @@ class PagesController < ApplicationController
   end
   
   def resenas
-    # public_activity collects tracked information here.
-    # The information to be tracked is determined in the new form file!
+    # Public_activity collects tracked model information here.
+    # The information to be tracked is designated in the new form view file of the specific model!
     @activities = PublicActivity::Activity.order('created_at desc').limit(10)
     # Here I take the public_activity hash, order it and put a condition on it.
-    # The idea is to limit the tracked activity to the pertaining web section.
+    # The idea of the following code is to limit the tracked activity to the pertaining web section.
+    # Categories assigned when creating an article...
     @activities_condition = "Drama", "Other", "Movie", "Book","Makeup","FacialProduct","Anime"
+    # Assigns entries to activities_by_ctrl as long as they have a trackable_type matiching
+    # The conditions stated above.
     @activities_by_ctrl = @activities.where({ trackable_type: [@activities_condition] })
 
     add_breadcrumb "Inicio", :root_path  
@@ -30,6 +34,7 @@ class PagesController < ApplicationController
     add_breadcrumb "Inicio", :root_path  
     add_breadcrumb "Cuidado Personal", :cuidado_personal_path
   end
+  
   
   def recomendaciones
     

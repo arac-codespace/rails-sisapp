@@ -1,5 +1,6 @@
-// Activity feed css
+// ARTICLE HUB PAGE CSS
 
+// Well bg image and styling
 div.resenas-well {
   background-image: url("whitecherryblossom.jpg");
   background-position: center;
@@ -9,73 +10,83 @@ div.resenas-well {
   border: 1px solid white;
 }
 
+// Small inner-well css
 div.well-sm {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   border: none;
 }
 
+// Style for in-well text
 .resenas-row div>h1>a, .cat-block ul>li>h4>a, .resenas-row h2>a {
   color: white;
   text-shadow: 2px 2px black;
 }
 
-.home-div {
-  position: absolute;
-  margin-top: 50%;
-  background-color: rgba(60, 19, 91, 0.25);
-}  
+// HOME PAGE CSS
 
-.home-div > .home-p {
-  font-size: 1.5em;
-}
-
+// Main home page heading styling
 .home-h {
   color: white;
   text-shadow: 2px 2px black;
   font-size: 3em;
 }
 
-// Activity Log CSS
+// Home page text box.  Absolute allows it to remain on top of bg.
+.home-div {
+  position: absolute;
+  margin-top: 50%;
+  // Home page paragraph font size
+  .home-p {
+    font-size: 1.3em;
+  }
+}  
 
+// ACTIVITY LOG CSS
+
+// Border color for activity log body
 div.panel-default {
-    border-color: #3c135b;
+    border-color: #3c135b; //deep purple
 }
 
+// Text styling, bg color and border color for the panel's heading
 .panel-default > div.panel-heading {
     color: #ffffff;
-    background-color: #3c135b;
-    border-color: #3c135b;
+    background-color: #3c135b; //deep purple
+    border-color: #3c135b; //deep purple
 }
 
-// About Page CSS
+// ABOUT PAGE CSS
+
+// Gif alignment and page centering
 div.gif-items {
+    // Centers the images
     text-align: center;
     margin-top : 30px;
     margin-bottom: 30px;
 }
 
+// Positions imgs into a line.  Img size determined.
 div.gif-items > img {
     display: inline-block;
     width: 150px;
     height: 100px;
 }
 
-div.gif-teism :after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-}
 
-.about-row {
+// About page text formatting
+
+// Heading styling
+.about-heading {
   color: white;
   text-shadow: 2px 2px black;
 }
 
+// Paragraph styling
 .about-text {
   line-height: 1.5;
-}
-
-.about-body {
-  text-indent: 50px;
+  // Main paragraph indentation
+  .about-body {
+    text-indent: 50px;
+  }  
 }
