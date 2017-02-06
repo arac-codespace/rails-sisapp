@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, controllers: { registrations: "registrations"}
+  
+  devise_for :users, :skip => [:sessions]
+
+  as :user do
+      get "/admin" => "devise/sessions#new", :as => :new_user_session
+      post "/admin" => "devise/sessions#create", :as => :user_session
+      delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
+  
   root to: 'pages#home'
   get 'sobre_nosotras', to: 'pages#about'
   get 'resenas', to: 'pages#resenas'
   get 'cuidado_personal', to: 'pages#cuidado_personal'
   get 'recomendaciones', to: 'pages#recomendaciones'
-  
-  resources :resenas do
-    resources :dramas, :movies
-  end
-  
-  
   
   #Only an authenticated user can get access to these actions
   authenticate :user, lambda {|u| u.admin?} do

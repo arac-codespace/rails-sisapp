@@ -42,15 +42,10 @@
               <li><%= link_to "Recomendaciones",recomendaciones_path %></li>
               <li><%= link_to "Sobre Nosotras", sobre_nosotras_path %></li>
               <li class= 'login_logout_btn'>
-                <% if user_signed_in? %>
+                <% if user_signed_in? && current_user.try(:admin?) %>
                   <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-                <% else %>
-                  <%= link_to('Login', new_user_session_path) %>
                 <% end %>
               </li>                
-              <!--<li>-->
-              <!--  <a class="glyphicon glyphicon-search"  data-toggle="collapse" href="#nav-collapse-s" aria-expanded="false" aria-controls="nav-collapse3"></a>-->
-              <!--</li>-->
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

@@ -1,16 +1,9 @@
 <!-- public_activity partial that changes depending on activity-->
-<!--<div class = 'container-fluid'>-->
-<!--  <div class = 'row activity-row'>-->
-<!--    <div class = 'col-md-offset-1 col-md-10 activity-index-col'>-->
-<!--      <div class= 'activities-index'>-->
-        Added review for 
-        <% if activity.trackable %>
-            <!-- The second activity.trackable is the path for the link_to! -->
-            the <%= link_to activity.trackable.title, activity.trackable %> anime series! Date: <%= activity.trackable.created_at.to_time.strftime('%a %b %d %H:%M:%S %Z %Y') %>. 
-        <% else %>
-            an anime series that has since been removed!
-        <% end %>
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+Added review for 
+<% if activity.trackable %>
+    <!-- The second activity.trackable is the path for the link_to! -->
+    the <%= link_to activity.trackable.title, activity.trackable %> anime series! Date: <%= activity.trackable.created_at.to_time.strftime('%a %b %d %H:%M:%S %Z %Y') %>. 
+<% else %>
+    an anime series that has since been removed!
+<% end %>
+
