@@ -41,6 +41,15 @@ body {
   background-color: #cc99fe; //light-purple
 }
 
+// Limits the height and width of embedded videos
+iframe {
+    height: 500px;
+    width: 100%;
+    resize: both;
+    overflow: scroll;
+}
+
+
 // Full site text styling
 p, h4, h3 {
   font-family: 'Quicksand';
