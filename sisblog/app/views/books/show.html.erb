@@ -44,9 +44,9 @@
                 <h3> Autor:</h3> 
                 <p><%= @book_show.author %></p>
                 <h3> Fecha de Publicación: </h3> 
-                <p><%= @book_show.release_date.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @book_show.release_date.try(:strftime,"%b %d, %y") %></p>
                 <h3> Fecha de Reseña: </h3>
-                <p><%= @book_show.created_at.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @book_show.created_at.try(:strftime,"%b %d, %y") %></p>
               </div>  
             </div> 
           </div>

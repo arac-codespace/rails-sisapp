@@ -41,7 +41,7 @@
                 <h3> Categoría:</h3> 
                 <p><%= @recommendation_show.category %></p>
                 <h3> Fecha de Reseña: </h3>
-                <p><%= @recommendation_show.created_at.strftime("%b %d, %Y").to_s %></p>                
+                <p><%= @recommendation_show.created_at.try(:strftime,"%b %d, %y") %></p>                
               </div>  
             </div> 
           </div>

@@ -39,7 +39,7 @@
                 <h3> Descripción:</h3>
                 <p><%= @craft_show.craft_description %></p>
                 <h3> Fecha de Reseña: </h3>
-                <p><%= @craft_show.created_at.strftime("%b %d, %Y").to_s %></p>                
+                <p><%= @craft_show.created_at.try(:strftime,"%b %d, %y") %></p>                
               </div>  
             </div> 
           </div>

@@ -46,9 +46,9 @@
                 <h3> Actores: </h3> 
                 <p><%= @drama_show.actors %></p>
                 <h3> Fecha de Publicación: </h3> 
-                <p><%= @drama_show.release_date.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @drama_show.release_date.try(:strftime,"%b %d, %y") %></p>
                 <h3> Fecha de Reseña: </h3>
-                <p><%= @drama_show.created_at.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @drama_show.created_at.try(:strftime,"%b %d, %y") %></p>
               </div>  
             </div> 
           </div>
@@ -58,7 +58,7 @@
             <div class="col-md-12">
               <h2 class= 'text-center body-title'> Opinión </h2>
               <div class= "well d-well">
-                <p><%= raw @drama_show.comments %></p>
+                <%= @drama_show.comments.html_safe %></p>
               </div>
             </div>
           </div>

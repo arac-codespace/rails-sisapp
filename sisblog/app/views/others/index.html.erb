@@ -91,7 +91,7 @@
                       </div>
                     <h4><%= other.actors %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= other.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= other.release_date.try(:strftime,"%b %d, %y") %></p>                    
                     <p><%= other.other_description %></p>
                   </div>
                 </div>

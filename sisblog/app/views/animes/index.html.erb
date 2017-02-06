@@ -90,7 +90,7 @@
                       </div>
                     <h4><%= anime.studios %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= anime.release_date.strftime("%b %d, %Y").to_s %></p>
+                    <p><%= anime.release_date.try(:strftime,"%b %d, %y") %></p>
                     <p><%= anime.anime_description %></p>
                   </div>
                 </div>

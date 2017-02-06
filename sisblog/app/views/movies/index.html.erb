@@ -93,7 +93,7 @@
                     <h4> <%= movie.category %></h4>
                     <h4> <%= movie.actors %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= movie.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= movie.release_date.try(:strftime,"%b %d, %Y") %></p>                    
                     <p><%= movie.movie_description %></p>
                   </div>
                 </div>
@@ -130,7 +130,7 @@
                     <h4> <%= movie.category %></h4>
                     <h4> <%= movie.actors %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= movie.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= movie.release_date.try(:strftime,"%b %d, %Y") %></p>                    
                     <p><%= movie.movie_description %></p>
                   </div> <!-- description-col-index end -->
                 </div> <!-- row end -->

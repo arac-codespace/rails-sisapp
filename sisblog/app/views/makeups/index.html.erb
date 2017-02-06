@@ -90,7 +90,7 @@
                       </div>
                     <h4><%= makeup.company %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= makeup.release_date.strftime("%b %d, %Y").to_s %></p>
+                    <p><%= makeup.release_date.try(:strftime,"%b %d, %y") %></p>
                     <p><%= makeup.makeup_description %></p>
                   </div>
                 </div>

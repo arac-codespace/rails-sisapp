@@ -44,9 +44,9 @@
                 <h3> Actores/Compañía/Autor:</h3> 
                 <p><%= @other_show.actors %></p>
                 <h3> Fecha de Publicación: </h3> 
-                <p><%= @other_show.release_date.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @other_show.release_date.try(:strftime,"%b %d, %y") %></p>
                 <h3> Fecha de Reseña: </h3>
-                <p><%= @other_show.created_at.strftime("%b %d, %Y").to_s %></p>
+                <p><%= @other_show.created_at.try(:strftime,"%b %d, %y") %></p>
               </div>  
             </div> 
           </div>

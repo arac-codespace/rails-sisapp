@@ -1,8 +1,9 @@
 class Drama < ActiveRecord::Base
+  
   include PublicActivity::Common
-  
+
   before_create :randomize_id
-  
+
 
   has_attached_file :avatar, 
                     styles: { medium: "300x300>", thumb: "100x100>" }, 
@@ -17,5 +18,6 @@ class Drama < ActiveRecord::Base
       self.id = SecureRandom.random_number(1_000_000)
     end while Drama.where(id: self.id).exists?
   end
+  
   
 end

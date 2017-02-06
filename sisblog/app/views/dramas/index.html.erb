@@ -94,7 +94,7 @@
                     <h4> <%= drama.category %></h4>
                     <h4> <%= drama.actors %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= drama.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= drama.release_date.try(:strftime,"%b %D, %y") %></p>                    
                     <p><%= drama.drama_description %></p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
                     <h4> <%= drama.category %></h4>
                     <h4> <%= drama.actors %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= drama.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= drama.release_date.try(:strftime,"%b %D, %y") %></p>                    
                     <p><%= drama.drama_description %></p>
                   </div>
                 </div>

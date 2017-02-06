@@ -90,7 +90,7 @@
                       </div>
                     <h4><%= book.author %></h4>
                     <h4> Fecha de Publicación: </h4> 
-                    <p><%= book.release_date.strftime("%b %d, %Y").to_s %></p>                    
+                    <p><%= book.release_date.try(:strftime,"%b %d, %y") %></p>                    
                     <p><%= book.book_description %></p>
                   </div>
                 </div>
