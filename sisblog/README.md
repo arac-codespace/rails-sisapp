@@ -36,6 +36,6 @@ So, what next?  I'm planning to polish/better familiarize myself with ruby befor
 learn javascript.  I feel like learning a new language when I'm so new with ruby
 will only be a detriment to my learning.  So while I'm eager to learn JS, I'll
 be pushing it back for a little while longer.  I'll also be fiddling with relational
-databases in meanwhile.
+databases in the meantime.
 
-Hopefully I'll be messing around with JS and relational databases come my next project.
+Hopefully I'll be ready to work with JS and relational databases come my next project.
