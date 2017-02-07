@@ -47,7 +47,7 @@ div.d-well {
     // Keeps body text inside well boundary
     word-wrap: break-word;
     // Breaks word between any two letters
-    word-break: break-all;
+    // word-break: break-all;
     img {
       //The idea is to limit image size to well 100% of well size
       max-width: 100%;
