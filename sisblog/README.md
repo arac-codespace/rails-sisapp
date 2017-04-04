@@ -1,6 +1,6 @@
 # README
 
-A simple web app for my systers to mess around with and for me to practice 
+A simple web app for my sisters to mess around with and for me to practice 
 my infant coding skills.
 
 Creating this website has been a very entertaining and educational journey.  
@@ -15,7 +15,7 @@ works in the context of rails.  I also have a better idea as to its capabilities
 and the supporting technologies behind it.
 
 Having said that, there are a lot of things that even I know I've done
-unsatisfactorily that I'll definitly look to improve on in my next project.
+unsatisfactorily that I'll definitely look to improve on in my next project.
 
 The first and probably most obvious one is the seemingly excesive ammount of
 models, controllers and in turn, view files.  Best practices says to avoid repetition and I've gone
@@ -38,4 +38,4 @@ will only be a detriment to my learning.  So while I'm eager to learn JS, I'll
 be pushing it back for a little while longer.  I'll also be fiddling with relational
 databases in the meantime.
 
-Hopefully I'll be ready to work with JS and relational databases come my next project.
+Hopefully I'll be ready to work with JS and relational databases by my next project.
