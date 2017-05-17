@@ -1,0 +1,25 @@
+<%= form_for @chapter, url: project_chapter_path, :html => {:multipart => true} do |f| %>
+      
+      
+  <div class = "form-group">
+    <%= f.label :projects_id %>
+    <%= f.collection_select(:projects_id, Project.order(:title), :id, :title, include_blank: true) %>    
+  </div>    
+          
+  <div class= "form-group">
+    <%= f.label :chapter_number, "Título del Capítulo/Numero" %>
+    <%= f.text_field :chapter_number, :required => true, class: "form-control" %>
+  </div>   
+  
+
+  <!-- f.cktest_area is a ckeditor method to include its text editor into a form field-->
+  <div class= "form-group">
+    <%= f.label :chapter_text, "Texto Capítulo" %>
+    <%= f.cktext_area :chapter_text, :ckeditor => {:toolbar => "mini"}, class: "form-control" %>
+  </div>    
+  
+  
+  
+  <%= f.submit 'Enviar', class: "btn btn-default" %>
+  
+<% end %>

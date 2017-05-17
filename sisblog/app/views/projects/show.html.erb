@@ -30,9 +30,6 @@
                     <%= image_tag 'flower (1).png' %>
                   <% end %>
                 <% end %>
-                  <h4 class= "text-center brand-text"> Sakura Street's </h4>
-                  <p class='text-center avatar-rating'>rating:</p>
-                  <div class= 'text-center'> <%= render_stars(@project_show.rating) %></div>
               </div>    
             </div>
             
@@ -43,11 +40,7 @@
                 <p><%= @project_show.project_description %></p>
                 <h3> Categoría:</h3> 
                 <p><%= @project_show.category %></p>
-                <!--<h3> Actores: </h3> -->
-                <!--<p>%= @project_show.actors %</p>-->
-                <!--<h3> Fecha de Publicación: </h3> -->
-                <!--<p>%= @project_show.release_date.try(:strftime,"%b %d, %y") %</p>-->
-                <h3> Fecha de Reseña: </h3>
+                <h3> Fecha de Publicación: </h3>
                 <p><%= @project_show.created_at.try(:strftime,"%b %d, %y") %></p>
               </div>  
             </div> 
@@ -68,14 +61,25 @@
           
           <div class='row body-row'>
             <div class="col-md-12">
-              <h2 class= 'text-center body-title'> Chapter List </h2>
+              <h2 class= 'text-center body-title'> Capítulos </h2>
               <div class= "well d-well">
                 
               <% @chapter_list.each do |x| %>
-                <div class ='a-well'>
+                <div class ='a-well chp-well'>
                   <%= link_to project_chapter_path(project_id: @project_show.id, id: x.id) do%>
                     <h4><%= x.chapter_number %></h4>
                   <% end %>  
+                  
+                  <% if current_user.try(:admin?) %>
+                      <%= link_to edit_project_chapter_path(project_id: @project_show.id, id: x.id), class: "btn btn-default btn-block btn-chp" do %>
+                        <i class="fa fa-plus" aria-hidden="true"> Revisar </i>
+                      <% end %>  
+                      <%= link_to project_chapter_path(project_id: @project_show.id, id: x.id), method: :delete, data: {confirm: "Borrar este articulo?"}, class: "btn btn-default btn-block btn-chp" do %>
+                        <i class="fa fa-trash-o" aria-hidden="true"> Elimiar </i>
+                      <% end %>  
+                  <% end %>                   
+                  
+                  
                 </div>    
               <% end %>  
 

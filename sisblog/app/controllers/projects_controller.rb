@@ -1,9 +1,7 @@
 class ProjectsController < ApplicationController
   #Breadcrumb display order.
   add_breadcrumb "Inicio", :root_path 
-  add_breadcrumb "Reseñas", :resenas_path
-  add_breadcrumb "Indice Projects", :projects_path
-  
+  add_breadcrumb "Nuestras Historias", :projects_path
 
 
   # GET /projects  
@@ -27,20 +25,24 @@ class ProjectsController < ApplicationController
     @project_show = Project.find(params[:id])
     @chapter_list = Chapter.where(projects_id: @project_show.id)    
     @page_url = request.original_url
-     add_breadcrumb "Project"
+
+    add_breadcrumb "#{@project_show.title}"
   end
   
   # GET /projects/:id/edit
   def edit
     @project = Project.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @project_id = params[:id]
+    
+    add_breadcrumb "#{@project.title}", project_path(id: @project_id)
+    add_breadcrumb "Editar historia"    
   end
   
   # PUT /projects/:id
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(project_params)
-      flash[:success] = "Artículo Revisado!"
+      flash[:success] = "Historia revisada!"
       # Redirect to the project's profile
       redirect_to project_path(id: params[:id])
     else
@@ -52,7 +54,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    flash.notice= "Artículo eliminado."
+    flash.notice= "Historia eliminada."
     # Redirect to projects index
     redirect_to projects_path
   end
@@ -66,10 +68,10 @@ class ProjectsController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @project.create_activity :create
-        flash[:success] = " Artículo creado!"
+        flash[:success] = " Historia creada!"
         redirect_to projects_path 
       else
-        flash[:danger] = "Error: Artículo no se pudo crear."
+        flash[:danger] = "Error: Historia no se pudo añadir."
         redirect_to projects_path
       end
   end

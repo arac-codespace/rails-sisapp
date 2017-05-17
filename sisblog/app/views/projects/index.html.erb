@@ -17,10 +17,15 @@
                   Título
                 <% end %>   
               </li>
+              <li>            
+                <%= sort_link(@q, :category) do %>
+                  Categoría
+                <% end %>   
+              </li>              
               <li role="separator" class="divider"></li>
               <li>
                 <%= sort_link(@q, :created_at) do %>
-                  Fecha Reseña
+                  Fecha Publicación
                 <% end %>      
               </li>
             </ul>
@@ -64,9 +69,6 @@
                           <%= image_tag "flower (1).png", class: 'avatar-index-img img-responsive center-block' %>
                         <% end %>  
                       <% end %>
-                      <h4 class= "text-center brand-text"> Sakura Street's </h4>
-                      <p class='text-center avatar-rating'>rating:</p>
-                      <div class= 'text-center'> <%= render_stars(project.rating) %></div>
                     </div>
                   </div>   
                   <!-- Information spacing and link_to -->
@@ -79,7 +81,7 @@
                     <h4> <%= project.category %></h4>
                     <!--<h4> %= project.actors %</h4>-->
                     <h4> Fecha de Publicación: </h4> 
-                    <!--<p>%= project.release_date.try(:strftime,"%b %D, %y") %</p>                    -->
+                    <p><%= project.created_at.try(:strftime,"%b %d, %y") %> </p>                    
                     <p><%= project.project_description %></p>
                   </div>
                 </div>
