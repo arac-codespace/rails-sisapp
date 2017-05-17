@@ -21,7 +21,11 @@ class ProjectsController < ApplicationController
   
   # GET /projects/:id
   def show
+      
+    # @animalia = Kingdom.find_by kingdom_name: 'Animalia'      
+      
     @project_show = Project.find(params[:id])
+    @chapter_list = Chapter.where(projects_id: @project_show.id)    
     @page_url = request.original_url
      add_breadcrumb "Project"
   end

@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
+
+  has_many :chapters
+
   include PublicActivity::Common
-  
+
   before_create :randomize_id
   
 

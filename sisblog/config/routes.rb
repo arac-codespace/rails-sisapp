@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   
   
   resources :projects do 
-    resources :chapter, only: [:show]
+    resources :chapters
   end
   
   #Only an authenticated user can get access to these actions

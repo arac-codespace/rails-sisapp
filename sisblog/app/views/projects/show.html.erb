@@ -55,13 +55,29 @@
       
           
           <!-- Chapter List section -->
+          
+          <!-- Add Chapter Button-->
+          
+          <div class='row add-delete-row'>
+            <div class="col-sm-offset-10 col-sm-2 col-md-2 col-md-offset-10">
+              <%= link_to new_project_chapter_path(project_id: @project_show.id), class: "btn btn-default btn-block" do %>
+                <i class="fa fa-plus" aria-hidden="true"> Capítulos </i>
+              <% end %>  
+            </div>
+          </div>
+          
           <div class='row body-row'>
             <div class="col-md-12">
               <h2 class= 'text-center body-title'> Chapter List </h2>
               <div class= "well d-well">
                 
-                Hello
-
+              <% @chapter_list.each do |x| %>
+                <div class ='a-well'>
+                  <%= link_to project_chapter_path(project_id: @project_show.id, id: x.id) do%>
+                    <h4><%= x.chapter_number %></h4>
+                  <% end %>  
+                </div>    
+              <% end %>  
 
               </div>
             </div>
