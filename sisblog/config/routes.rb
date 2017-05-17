@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   get 'resenas', to: 'pages#resenas'
   get 'cuidado_personal', to: 'pages#cuidado_personal'
   get 'recomendaciones', to: 'pages#recomendaciones'
+  # get 'projects', to: 'pages#projects'
+  
+  
+  resources :projects do 
+    resources :chapter, only: [:show]
+  end
   
   #Only an authenticated user can get access to these actions
   authenticate :user, lambda {|u| u.admin?} do

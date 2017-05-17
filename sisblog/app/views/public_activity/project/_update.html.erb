@@ -1,0 +1,7 @@
+Updated review for 
+<% if activity.trackable %>
+    <!-- The second activity.trackable is the path for the link_to! -->
+    the <%= link_to activity.trackable.title, activity.trackable %> project series! Date: <%= activity.trackable.created_at.to_time.strftime('%a %b %d %H:%M:%S %Z %Y') %>. 
+<% else %>
+    a project series that has since been removed!
+<% end %>
