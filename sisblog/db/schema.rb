@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517012807) do
+ActiveRecord::Schema.define(version: 20170517053425) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -72,9 +72,11 @@ ActiveRecord::Schema.define(version: 20170517012807) do
   end
 
   create_table "chapters", force: :cascade do |t|
-    t.integer "projects_id"
-    t.string  "chapter_number"
-    t.string  "chapter_text"
+    t.integer  "projects_id"
+    t.string   "chapter_number"
+    t.string   "chapter_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

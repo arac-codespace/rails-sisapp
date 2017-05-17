@@ -21,9 +21,15 @@ class ChaptersController < ApplicationController
   
   # GET /chapters/:id
   def show
-    # @chapter_show = Chapter.find(params[:id])
-    # @page_url = request.original_url
-    #  add_breadcrumb "Chapter"
+    
+    @project_id = params[:project_id]
+    @chapter_show = Chapter.find(params[:id])
+    @chapters = Chapter.all
+
+    @prev = Chapter.where("id < ? AND projects_id = ?", params[:id], @project_id).order(:id).first 
+    @next = Chapter.where("id > ? AND projects_id = ?", params[:id], @project_id).order(:id).first 
+
+
   end
   
   # GET /chapters/:id/edit

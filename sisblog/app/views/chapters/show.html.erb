@@ -1,0 +1,33 @@
+<div class="index-header">
+  <div class= "container">
+    <div class = "row">
+      <div class = "col-md-12">
+        
+        <% if @prev %>
+          <%= link_to "Previous", project_chapter_path(project_id: @project_id, id: @prev.id) %>
+        <% end %>     
+        
+        <% if @next %>
+          <%= link_to "Next", project_chapter_path(project_id: @project_id, id: @next.id) %>
+        <% end %>
+
+          <!-- Chapter List section -->
+          <div class='row body-row'>
+            <div class="col-md-12">
+              <h2 class= 'text-center body-title'> <%= @chapter_show.chapter_number %> </h2>
+              <div class= "well d-well">
+                
+                <%= @chapter_show.chapter_text.html_safe %></p>
+
+
+              </div>
+            </div>
+          </div>          
+          
+          
+        <!-- Comment section render -->
+
+      </div>  
+    </div>  
+  </div>
+</div>
