@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
   def index
     @q = Project.ransack(params[:q])
     @projects = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
-    @category = params[:cat] #Variable catches query string for categorized views.
   end
   
   # GET /projects/new
@@ -19,8 +18,6 @@ class ProjectsController < ApplicationController
   
   # GET /projects/:id
   def show
-      
-    # @animalia = Kingdom.find_by kingdom_name: 'Animalia'      
       
     @project_show = Project.find(params[:id])
     @chapter_list = Chapter.where(project_id: @project_show.id)    

@@ -55,7 +55,6 @@
           <!-- Iterates through hash and checks if string query is present -->
           <% @projects.each do |project| %>
             <tr>
-            <% if @category.nil? %>  
               <td>
                 <!-- Table Data! -->
                 <div class = 'row results-row'>
@@ -88,7 +87,6 @@
               </td>
             </tr>                
 
-            <% end %> <!-- if condition end -->
           <% end %> <!-- each loop end-->  
         </table>
         

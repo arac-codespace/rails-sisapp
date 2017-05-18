@@ -1,10 +1,8 @@
 <%= form_for @chapter, url: project_chapter_path, :html => {:multipart => true} do |f| %>
       
       
-  <div class = "form-group">
-    <%= f.label :project_id %>
-    <%= f.collection_select(:project_id, Project.order(:title), :id, :title, include_blank: true) %>    
-  </div>    
+  <!-- Hidden field to help app store novel id -->
+  <%= f.hidden_field :project_id, value: @project_id %>   
           
   <div class= "form-group">
     <%= f.label :chapter_number, "Título del Capítulo/Numero" %>

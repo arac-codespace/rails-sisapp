@@ -16,10 +16,17 @@ Rails.application.routes.draw do
   get 'recomendaciones', to: 'pages#recomendaciones'
   # get 'projects', to: 'pages#projects'
   
+
+  authenticate :user, lambda {|u| u.admin?} do
+    resources :projects, only: [:new, :create, :edit, :update, :destroy] do
+      resources :chapters, only: [:new, :create, :edit, :update, :destroy]
+    end
+  end  
   
-  resources :projects do 
-    resources :chapters
-  end
+  resources :projects, only: [:index, :show] do 
+    resources :chapters, only: [:show]
+  end  
+  
   
   #Only an authenticated user can get access to these actions
   authenticate :user, lambda {|u| u.admin?} do
