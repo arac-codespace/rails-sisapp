@@ -7,12 +7,12 @@
         <% if current_user.try(:admin?) %>
           <div class='row add-delete-row'>
             <div class="col-sm-offset-8 col-sm-2 col-md-2 col-md-offset-8">
-              <%= link_to edit_movie_path(id: @movie_show.id), class: "btn btn-default btn-block" do %>
+              <%= link_to edit_movie_path(id: @movie_show), class: "btn btn-default btn-block" do %>
                 <i class="fa fa-plus" aria-hidden="true"> Revisar </i>
               <% end %>  
             </div>
             <div class="col-sm-2 col-md-2">
-              <%= link_to movie_path(id: @movie_show.id), method: :delete, data: {confirm: "Borrar este articulo?"}, class: "btn btn-default btn-block" do %>
+              <%= link_to movie_path(id: @movie_show), method: :delete, data: {confirm: "Borrar este articulo?"}, class: "btn btn-default btn-block" do %>
                 <i class="fa fa-trash-o" aria-hidden="true"> Elimiar </i>
               <% end %>  
             </div>
