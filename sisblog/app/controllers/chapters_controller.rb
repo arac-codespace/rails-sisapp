@@ -19,6 +19,11 @@ class ChaptersController < ApplicationController
   # GET /chapters/:id
   def show
     
+    # Rails is able to separate the id from the slugs in the URL
+    # by using the query functions (find).  The cycle btn function
+    # cannot distinguish ids from the rest, which 
+    # is why I pass the params to those find functions first.
+    
     @project_id = params[:project_id]
     @project_title = Project.find(@project_id)
     @chapter_show = Chapter.find(params[:id])
