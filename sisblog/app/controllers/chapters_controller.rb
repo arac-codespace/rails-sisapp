@@ -24,8 +24,21 @@ class ChaptersController < ApplicationController
     @chapter_show = Chapter.find(params[:id])
     @chapters = Chapter.all
 
-    @prev = Chapter.where("id < ? AND project_id = ?", params[:id], @project_id).order(:id).last
-    @next = Chapter.where("id > ? AND project_id = ?", params[:id], @project_id).order(:id).first 
+    # Some explanation is necessary here for future reference...
+    # So, project_id catches the project_id parameter from the URL.
+    # The parameter is used to find the corresponding Project record in project_title.
+    # project_title is later used to query the title for breadcrumbs and to find
+    # the corresponding Project row for the prev/next button function.
+    
+    # The following lines are the prev/next record functions.
+    # In this function chapter_show is used to provide the id for the first comparison
+    
+    @prev = Chapter.where("id < ? AND project_id = ?", @chapter_show, @project_title).order(:id).last
+    @next = Chapter.where("id > ? AND project_id = ?", @chapter_show, @project_title).order(:id).first 
+    
+    # The following lines are the breadcrumb lines from the breadcrumb gem.
+    # Here we pass the model instead of the ID so that the modified to_param
+    # function which provides the custom URLs can be used.
     
     add_breadcrumb "#{@project_title.title}", project_path(id: @project_id)
     add_breadcrumb "#{@chapter_show.chapter_number}"

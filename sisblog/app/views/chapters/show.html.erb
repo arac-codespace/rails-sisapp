@@ -5,14 +5,14 @@
         
         <div class="chp-btns">
           <% if @prev %>
-            <%= link_to project_chapter_path(project_id: @project_id, id: @prev.id), class: 'btn btn-primary' do %> 
+            <%= link_to project_chapter_path(project_id: @project_id, id: @prev), class: 'btn btn-primary' do %> 
               <span class= 'glyphicon glyphicon-circle-arrow-left'></span>
               <span> Previous</span>
             <% end %>
           <% end %>     
           
           <% if @next %>
-            <%= link_to project_chapter_path(project_id: @project_id, id: @next.id), class: 'btn btn-primary' do %> 
+            <%= link_to project_chapter_path(project_id: @project_id, id: @next), class: 'btn btn-primary' do %> 
               <span class= 'glyphicon glyphicon-circle-arrow-right'></span>
               <span> Next</span>
             <% end %>  
@@ -32,16 +32,18 @@
             </div>
           </div>          
           
+          <%= @project_id.inspect %>
+          
         <div class="chp-btns">
           <% if @prev %>
-            <%= link_to project_chapter_path(project_id: @project_id, id: @prev.id), class: 'btn btn-primary nav-chp-btn' do %> 
+            <%= link_to project_chapter_path(project_id: @project_id, id: @prev), class: 'btn btn-primary nav-chp-btn' do %> 
               <span class= 'glyphicon glyphicon-circle-arrow-left'></span>
               <span> Previous</span>
             <% end %>
           <% end %>     
           
           <% if @next %>
-            <%= link_to project_chapter_path(project_id: @project_id, id: @next.id), class: 'btn btn-primary nav-chp-btn' do %> 
+            <%= link_to project_chapter_path(project_id: @project_id, id: @next), class: 'btn btn-primary nav-chp-btn' do %> 
               <span class= 'glyphicon glyphicon-circle-arrow-right'></span>
               <span> Next</span>
             <% end %>  
