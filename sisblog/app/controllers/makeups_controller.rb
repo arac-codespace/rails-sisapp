@@ -23,13 +23,16 @@ class MakeupsController < ApplicationController
   def show
     @makeup_show = Makeup.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Maquillaje"
+    add_breadcrumb "#{@makeup_show.title}"
   end
   
   # GET /makeups/:id/edit
   def edit
     @makeup = Makeup.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @makeup_id = params[:id]
+    
+    add_breadcrumb "#{@makeup.title}", makeup_path(id: @makeup_id)
+    add_breadcrumb "Editar artículo"   
   end
   
   # PUT /makeups/:id

@@ -23,13 +23,17 @@ class FacialProductsController < ApplicationController
   def show
     @facialproduct_show = FacialProduct.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Producto Facial"
+
+    add_breadcrumb "#{@facialproduct_show.title}"
   end
   
   # GET /facial_products/:id/edit
   def edit
     @facialproduct = FacialProduct.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @facialproduct_id = params[:id]
+    
+    add_breadcrumb "#{@facialproduct.title}", facial_product_path(id: @facialproduct_id)
+    add_breadcrumb "Editar artículo"   
   end
   
   # PUT /facial_products/:id

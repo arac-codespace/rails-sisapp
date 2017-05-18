@@ -10,7 +10,6 @@ class BooksController < ApplicationController
   def index
     @q = Book.ransack(params[:q])
     @books = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
-    # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
   # GET /books/new
@@ -23,12 +22,17 @@ class BooksController < ApplicationController
   def show
     @book_show = Book.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Libros"
+
+    add_breadcrumb "#{@book_show.title}"
+
   end
   
   # GET /books/:id/edit
   def edit
     @book = Book.find(params[:id])
+    @book_id = params[:id]
+    
+    add_breadcrumb "#{@book.title}", book_path(id: @book_id)
     add_breadcrumb "Editar artículo"    
   end
   

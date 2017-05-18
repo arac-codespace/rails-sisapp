@@ -10,7 +10,6 @@ class AnimesController < ApplicationController
   def index
     @q = Anime.ransack(params[:q])
     @animes = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
-    # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
   # GET /animes/new
@@ -23,12 +22,18 @@ class AnimesController < ApplicationController
   def show
     @page_url = request.original_url
     @anime_show = Anime.find(params[:id])
-     add_breadcrumb "Anime"
+
+    add_breadcrumb "#{@anime_show.title}"
+     
   end
   
   # GET /animes/:id/edit
   def edit
     @anime = Anime.find(params[:id])
+    @anime_id = params[:id]
+    
+
+    add_breadcrumb "#{@anime.title}", anime_path(id: @anime_id)
     add_breadcrumb "Editar artículo"    
   end
   

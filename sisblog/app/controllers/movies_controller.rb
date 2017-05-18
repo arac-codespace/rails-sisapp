@@ -23,12 +23,15 @@ class MoviesController < ApplicationController
   def show
     @movie_show = Movie.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Película"
+    add_breadcrumb "#{@movie_show.title}"
   end
   # GET /movies/:id/edit  
   def edit
     @movie = Movie.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @movie_id = params[:id]
+    
+    add_breadcrumb "#{@movie.title}", movie_path(id: @movie_id)
+    add_breadcrumb "Editar artículo"     
   end
   
   # PUT /movies/:id

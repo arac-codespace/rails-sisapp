@@ -22,12 +22,16 @@ class CraftsController < ApplicationController
   def show
     @craft_show = Craft.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Manualidades"
+
+    add_breadcrumb "#{@craft_show.title}"
   end
   
   # GET /crafts/:id/edit
   def edit
     @craft = Craft.find(params[:id])
+    @craft_id = params[:id]
+    
+    add_breadcrumb "#{@craft.title}", craft_path(id: @craft_id)    
     add_breadcrumb "Editar artículo"    
   end
   

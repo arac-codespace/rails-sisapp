@@ -43,7 +43,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     
     add_breadcrumb "#{@project_title.title}", project_path(id: @project_id)
-    add_breadcrumb "Editar artículo - #{@chapter_show.chapter_number}"
+    add_breadcrumb "Editar Capítulo - #{@chapter_show.chapter_number}"
     
   end
   
@@ -52,7 +52,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @project_id = params[:project_id]
     if @chapter.update_attributes(chapter_params)
-      flash[:success] = "Artículo Revisado!"
+      flash[:success] = "Capítulo Revisado!"
       # Redirect to the chapter's profile
       redirect_to project_path(id: @project_id)
     else
@@ -65,7 +65,7 @@ class ChaptersController < ApplicationController
     @chapter = Chapter.find(params[:id])
     @project_id = params[:project_id]
     @chapter.destroy
-    flash.notice= "Artículo eliminado."
+    flash.notice= "Capítulo eliminado."
     # Redirect to chapters index
     redirect_to project_path(id: @project_id)
   end
@@ -81,10 +81,10 @@ class ChaptersController < ApplicationController
         # When the model is saved, have public_activity track this activity and
         # associate it with the create action.
         @chapter.create_activity :create
-        flash[:success] = " Artículo creado!"
+        flash[:success] = " Capítulo creado!"
         redirect_to project_path(id: @project_id)
       else
-        flash[:danger] = "Error: Artículo no se pudo crear."
+        flash[:danger] = "Error: Capítulo no se pudo crear."
         render action: :new
       end
   end

@@ -23,13 +23,18 @@ class DramasController < ApplicationController
   def show
     @drama_show = Drama.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Drama"
+
+    add_breadcrumb "#{@drama_show.title}"
+
   end
   
   # GET /dramas/:id/edit
   def edit
     @drama = Drama.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @drama_id = params[:id]
+    
+    add_breadcrumb "#{@drama.title}", drama_path(id: @drama_id)
+    add_breadcrumb "Editar artículo"   
   end
   
   # PUT /dramas/:id

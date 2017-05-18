@@ -13,7 +13,6 @@ class CaresController < ApplicationController
     @q = Care.ransack(params[:q])
     @cares = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
     @category = params[:cat] #Variable catches query string for categorized views.
-    # @category = params[:cat] #Variable catches query string for categorized views.
   end
   
   # GET /books/new
@@ -26,12 +25,16 @@ class CaresController < ApplicationController
   def show
     @care_show = Care.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Cuidado Personal"
+
+    add_breadcrumb "#{@care_show.title}"
   end
   
   # GET /books/:id/edit
   def edit
     @care = Care.find(params[:id])
+    @care_id = params[:id]
+    
+    add_breadcrumb "#{@care.title}", care_path(id: @care_id)    
     add_breadcrumb "Editar artículo"    
   end
   

@@ -22,13 +22,16 @@ class RecommendationsController < ApplicationController
   def show
     @recommendation_show = Recommendation.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Recomendacion"
+    add_breadcrumb "#{@recommendation_show.title}"
   end
   
   # GET /recommendations/:id/edit
   def edit
     @recommendation = Recommendation.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @recommendation_id = params[:id]
+    
+    add_breadcrumb "#{@recommendation.title}", recommendation_path(id: @recommendation_id)
+    add_breadcrumb "Editar artículo"  
   end
   
   # PUT /recommendations/:id

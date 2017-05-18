@@ -23,13 +23,16 @@ class OthersController < ApplicationController
   def show
     @other_show = Other.find(params[:id])
     @page_url = request.original_url
-     add_breadcrumb "Otro"
+    add_breadcrumb "#{@other_show.title}"
   end
   
   # GET /others/:id/edit
   def edit
     @other = Other.find(params[:id])
-    add_breadcrumb "Editar artículo"    
+    @other_id = params[:id]
+    
+    add_breadcrumb "#{@other.title}", other_path(id: @other_id)
+    add_breadcrumb "Editar artículo"  
   end
   
   # PUT /others/:id
