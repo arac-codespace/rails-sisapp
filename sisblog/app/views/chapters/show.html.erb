@@ -3,13 +3,21 @@
     <div class = "row">
       <div class = "col-md-12">
         
-        <% if @prev %>
-          <%= link_to "Previous", project_chapter_path(project_id: @project_id, id: @prev.id) %>
-        <% end %>     
-        
-        <% if @next %>
-          <%= link_to "Next", project_chapter_path(project_id: @project_id, id: @next.id) %>
-        <% end %>
+        <div class="chp-btns">
+          <% if @prev %>
+            <%= link_to project_chapter_path(project_id: @project_id, id: @prev.id), class: 'btn btn-primary' do %> 
+              <span class= 'glyphicon glyphicon-circle-arrow-left'></span>
+              <span> Previous</span>
+            <% end %>
+          <% end %>     
+          
+          <% if @next %>
+            <%= link_to project_chapter_path(project_id: @project_id, id: @next.id), class: 'btn btn-primary' do %> 
+              <span class= 'glyphicon glyphicon-circle-arrow-right'></span>
+              <span> Next</span>
+            <% end %>  
+          <% end %>
+        </div>
 
           <!-- Chapter List section -->
           <div class='row body-row'>
@@ -24,9 +32,22 @@
             </div>
           </div>          
           
+        <div class="chp-btns">
+          <% if @prev %>
+            <%= link_to project_chapter_path(project_id: @project_id, id: @prev.id), class: 'btn btn-primary nav-chp-btn' do %> 
+              <span class= 'glyphicon glyphicon-circle-arrow-left'></span>
+              <span> Previous</span>
+            <% end %>
+          <% end %>     
           
-        <!-- Comment section render -->
-
+          <% if @next %>
+            <%= link_to project_chapter_path(project_id: @project_id, id: @next.id), class: 'btn btn-primary nav-chp-btn' do %> 
+              <span class= 'glyphicon glyphicon-circle-arrow-right'></span>
+              <span> Next</span>
+            <% end %>  
+          <% end %>
+        </div>
+        
       </div>  
     </div>  
   </div>

@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
 
-  has_many :chapters, :dependent => :destroy
+  has_many :chapters, dependent: :destroy
 
-  # include PublicActivity::Common
+  include PublicActivity::Common
 
   before_create :randomize_id
   

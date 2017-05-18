@@ -24,8 +24,8 @@ class ChaptersController < ApplicationController
     @chapter_show = Chapter.find(params[:id])
     @chapters = Chapter.all
 
-    @prev = Chapter.where("id < ? AND projects_id = ?", params[:id], @project_id).order(:id).first 
-    @next = Chapter.where("id > ? AND projects_id = ?", params[:id], @project_id).order(:id).first 
+    @prev = Chapter.where("id < ? AND project_id = ?", params[:id], @project_id).order(:id).last
+    @next = Chapter.where("id > ? AND project_id = ?", params[:id], @project_id).order(:id).first 
     
     add_breadcrumb "#{@project_title.title}", project_path(id: @project_id)
     add_breadcrumb "#{@chapter_show.chapter_number}"
@@ -93,7 +93,7 @@ class ChaptersController < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields
     def chapter_params
-        params.require(:chapter).permit(:chapter_number, :chapter_text, :projects_id)
+        params.require(:chapter).permit(:chapter_number, :chapter_text, :project_id)
     end
 
   

@@ -50,14 +50,15 @@
           <!-- Chapter List section -->
           
           <!-- Add Chapter Button-->
-          
-          <div class='row add-delete-row'>
-            <div class="col-sm-offset-10 col-sm-2 col-md-2 col-md-offset-10">
-              <%= link_to new_project_chapter_path(project_id: @project_show.id), class: "btn btn-default btn-block" do %>
-                <i class="fa fa-plus" aria-hidden="true"> Capítulos </i>
-              <% end %>  
+          <% if current_user.try(:admin?) %>
+            <div class='row add-delete-row'>
+              <div class="col-sm-offset-10 col-sm-2 col-md-2 col-md-offset-10">
+                <%= link_to new_project_chapter_path(project_id: @project_show.id), class: "btn btn-default btn-block" do %>
+                  <i class="fa fa-plus" aria-hidden="true"> Capítulos </i>
+                <% end %>  
+              </div>
             </div>
-          </div>
+          <% end %>
           
           <div class='row body-row'>
             <div class="col-md-12">

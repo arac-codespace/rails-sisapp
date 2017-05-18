@@ -72,3 +72,23 @@
 .avatar-rating {
   color: #ff40c7;
 }
+
+// Project index css
+
+li.active > span.page-link {
+  background-color: #3c135b;
+  border-color: #26093c;
+}
+
+li.active > span.page-link:hover {
+  background-color: #ff40c7;
+  border-color: #ff40c7;
+}
+
+li.page-item > a.page-link {
+  color: #3c135b;  //purple
+}
+
+li.page-item > a.page-link:hover {
+  color: #ff40c7;  //pink
+}

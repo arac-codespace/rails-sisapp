@@ -1,6 +1,6 @@
 class Chapter < ActiveRecord::Base
     
-    # include PublicActivity::Common
+    include PublicActivity::Common
 
     belongs_to :project
     

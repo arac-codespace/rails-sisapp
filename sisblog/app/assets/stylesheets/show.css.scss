@@ -75,3 +75,30 @@ a.btn-chp {
   padding-bottom: 10px;
   border-bottom: 1px solid black;  
 }
+
+.chp-well > a {
+  color: #3c135b;
+}
+
+.chp-well > a:hover {
+  color: #ff40c7;
+}
+
+
+// Chapter show css
+
+.chp-btns {
+  font-size: x-large;
+  text-align: center;
+  margin: 6px 0 6px 0;
+}
+
+.chp-btns > a.btn-primary {
+  background-color: #3c135b;
+  border-color: #3c135b;
+}
+
+.chp-btns > a.btn-primary:hover {
+  background-color: #ff40c7; //pink
+  border-color: #3c135b;
+}
